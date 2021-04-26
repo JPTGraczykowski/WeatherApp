@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.jpg</groupId>
-    <artifactId>weather-app</artifactId>
+    <groupId>org.openjfx</groupId>
+    <artifactId>WeatherApp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,11 +20,6 @@
             <artifactId>javafx-fxml</artifactId>
             <version>15.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>net.aksingh</groupId>
-            <artifactId>owm-japis</artifactId>
-            <version>2.5.3.0</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -41,7 +36,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>com.jpg.App</mainClass>
+                    <mainClass>org.openjfx.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>
