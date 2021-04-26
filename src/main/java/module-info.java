@@ -1,7 +1,7 @@
-module com.jpg {
+module org.openjfx {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.jpg to javafx.fxml;
-    exports com.jpg;
+    opens org.openjfx to javafx.fxml;
+    exports org.openjfx;
 }
