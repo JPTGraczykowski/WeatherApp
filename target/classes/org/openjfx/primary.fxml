@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="901.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controller.PrimaryController">
+            xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="firstCountry" layoutX="316.0" layoutY="48.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
       <TextField fx:id="secondCountry" layoutX="309.0" layoutY="438.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />

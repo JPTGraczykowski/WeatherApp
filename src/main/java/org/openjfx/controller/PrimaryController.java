@@ -30,6 +30,9 @@ public class PrimaryController {
   @FXML
   private Label errorLabel;
 
+  public PrimaryController() {
+  }
+
   @FXML
   void firstShowButtonAction() {
     System.out.println("First Button Clicked!");

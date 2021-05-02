@@ -3,5 +3,7 @@ module org.openjfx {
     requires javafx.fxml;
 
     opens org.openjfx.controller;
+    opens org.openjfx.model;
+    opens org.openjfx.view;
     opens org.openjfx;
 }

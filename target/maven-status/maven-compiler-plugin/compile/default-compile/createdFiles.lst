@@ -1,3 +1,5 @@
-org/openjfx/App.class
+org/openjfx/model/StaticValues.class
 module-info.class
 org/openjfx/controller/PrimaryController.class
+org/openjfx/App.class
+org/openjfx/view/ViewFactory.class

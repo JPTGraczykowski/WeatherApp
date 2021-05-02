@@ -23,22 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7205ddfa-e034-4822-8f6e-e5d1af04c534" name="Default Changelist" comment="Start from scratch">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/controller/PrimaryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/model/StaticValues.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/view/ViewFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/PrimaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/SecondaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/controller/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/controller/PrimaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/primary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/secondary.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/PrimaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/SecondaryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/controller/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/controller/PrimaryController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/primary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/secondary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -106,30 +102,30 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="897" y="418" key="#com.intellij.ide.util.MemberChooser" timestamp="1619955121891">
+    <state x="897" y="418" key="#com.intellij.ide.util.MemberChooser" timestamp="1619957119506">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state x="1229" y="-1139" key="#com.intellij.ide.util.MemberChooser/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619464481225" />
-    <state x="897" y="418" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1280@0.0.2048.1280" timestamp="1619955121891" />
-    <state width="2006" height="366" key="GridCell.Tab.0.bottom" timestamp="1619955967651">
+    <state x="897" y="418" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1280@0.0.2048.1280" timestamp="1619957119506" />
+    <state width="2006" height="366" key="GridCell.Tab.0.bottom" timestamp="1619959327698">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state width="2966" height="502" key="GridCell.Tab.0.bottom/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252084" />
-    <state width="2006" height="366" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1619955967651" />
-    <state width="2006" height="366" key="GridCell.Tab.0.center" timestamp="1619955967650">
+    <state width="2006" height="366" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1619959327698" />
+    <state width="2006" height="366" key="GridCell.Tab.0.center" timestamp="1619959327697">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state width="2966" height="502" key="GridCell.Tab.0.center/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252083" />
-    <state width="2006" height="366" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1619955967650" />
-    <state width="2006" height="366" key="GridCell.Tab.0.left" timestamp="1619955967649">
+    <state width="2006" height="366" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1619959327697" />
+    <state width="2006" height="366" key="GridCell.Tab.0.left" timestamp="1619959327696">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state width="2966" height="502" key="GridCell.Tab.0.left/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252082" />
-    <state width="2006" height="366" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1619955967649" />
-    <state width="2006" height="366" key="GridCell.Tab.0.right" timestamp="1619955967650">
+    <state width="2006" height="366" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1619959327696" />
+    <state width="2006" height="366" key="GridCell.Tab.0.right" timestamp="1619959327697">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state width="2966" height="502" key="GridCell.Tab.0.right/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252084" />
-    <state width="2006" height="366" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1619955967650" />
+    <state width="2006" height="366" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1619959327697" />
   </component>
 </project>
