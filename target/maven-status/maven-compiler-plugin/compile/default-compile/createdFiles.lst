@@ -1,5 +1,6 @@
 org/openjfx/model/StaticValues.class
 org/openjfx/model/Weather.class
+org/openjfx/model/WeatherApiConnectService.class
 module-info.class
 org/openjfx/controller/PrimaryController.class
 org/openjfx/App.class
