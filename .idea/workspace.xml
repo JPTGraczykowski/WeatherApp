@@ -22,17 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7205ddfa-e034-4822-8f6e-e5d1af04c534" name="Default Changelist" comment="Start from scratch">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/model/StaticValues.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/view/ViewFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/style.css" afterDir="false" />
+    <list default="true" id="7205ddfa-e034-4822-8f6e-e5d1af04c534" name="Default Changelist" comment="Add a ViewFactory class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/model/Weather.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/controller/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/controller/PrimaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/primary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/controller/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/controller/PrimaryController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/primary.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
@@ -46,6 +40,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -87,6 +82,14 @@
       <option name="presentableId" value="Default" />
       <updated>1619462115424</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add a ViewFactory class">
+      <created>1619959489729</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619959489729</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,31 +104,39 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add a ViewFactory class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a ViewFactory class" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="897" y="418" key="#com.intellij.ide.util.MemberChooser" timestamp="1619957119506">
+    <state x="897" y="418" key="#com.intellij.ide.util.MemberChooser" timestamp="1619960059590">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state x="1229" y="-1139" key="#com.intellij.ide.util.MemberChooser/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619464481225" />
-    <state x="897" y="418" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1280@0.0.2048.1280" timestamp="1619957119506" />
-    <state width="2006" height="366" key="GridCell.Tab.0.bottom" timestamp="1619959327698">
+    <state x="897" y="418" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1280@0.0.2048.1280" timestamp="1619960059590" />
+    <state x="762" y="391" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620046879575">
+      <screen x="0" y="0" width="2048" height="1280" />
+    </state>
+    <state x="762" y="391" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2048.1280@0.0.2048.1280" timestamp="1620046879575" />
+    <state width="2006" height="366" key="GridCell.Tab.0.bottom" timestamp="1620046991057">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state width="2966" height="502" key="GridCell.Tab.0.bottom/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252084" />
-    <state width="2006" height="366" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1619959327698" />
-    <state width="2006" height="366" key="GridCell.Tab.0.center" timestamp="1619959327697">
+    <state width="2006" height="366" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1620046991057" />
+    <state width="2006" height="366" key="GridCell.Tab.0.center" timestamp="1620046991056">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state width="2966" height="502" key="GridCell.Tab.0.center/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252083" />
-    <state width="2006" height="366" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1619959327697" />
-    <state width="2006" height="366" key="GridCell.Tab.0.left" timestamp="1619959327696">
+    <state width="2006" height="366" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1620046991056" />
+    <state width="2006" height="366" key="GridCell.Tab.0.left" timestamp="1620046991056">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state width="2966" height="502" key="GridCell.Tab.0.left/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252082" />
-    <state width="2006" height="366" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1619959327696" />
-    <state width="2006" height="366" key="GridCell.Tab.0.right" timestamp="1619959327697">
+    <state width="2006" height="366" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1620046991056" />
+    <state width="2006" height="366" key="GridCell.Tab.0.right" timestamp="1620046991057">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state width="2966" height="502" key="GridCell.Tab.0.right/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252084" />
-    <state width="2006" height="366" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1619959327697" />
+    <state width="2006" height="366" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1620046991057" />
   </component>
 </project>

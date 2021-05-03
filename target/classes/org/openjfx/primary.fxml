@@ -6,17 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="901.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="901.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="firstCountry" layoutX="316.0" layoutY="48.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
       <TextField fx:id="secondCountry" layoutX="309.0" layoutY="438.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
       <TextField fx:id="firstCity" layoutX="575.0" layoutY="48.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
       <TextField fx:id="secondCity" layoutX="569.0" layoutY="438.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
-      <Button layoutX="837.0" layoutY="45.0" mnemonicParsing="false" onAction="#firstShowButtonAction"
-              prefHeight="33.0" prefWidth="118.0" styleClass="button" text="Forecast" />
-      <Button layoutX="837.0" layoutY="437.0" mnemonicParsing="false" onAction="#secondShowButtonAction"
-              prefHeight="33.0" prefWidth="118.0" styleClass="button" text="Forecast" />
+      <Button layoutX="837.0" layoutY="45.0" mnemonicParsing="false" onAction="#firstShowButtonAction" prefHeight="33.0" prefWidth="118.0" styleClass="button" text="Forecast" />
+      <Button layoutX="837.0" layoutY="437.0" mnemonicParsing="false" onAction="#secondShowButtonAction" prefHeight="33.0" prefWidth="118.0" styleClass="button" text="Forecast" />
       <Label fx:id="helpLabel1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="55.0" layoutY="40.0" prefHeight="42.0" prefWidth="250.0" styleClass="bigLabel" text="Type a city or country:" />
       <Label fx:id="helpLabel2" alignment="CENTER_RIGHT" layoutX="53.0" layoutY="431.0" prefHeight="42.0" prefWidth="250.0" styleClass="bigLabel" text="Type a city or country:" />
       <Label fx:id="titleLabel" alignment="CENTER" layoutX="365.0" layoutY="1.0" prefHeight="42.0" prefWidth="521.0" styleClass="title" text="Weather App">
@@ -24,5 +21,7 @@
             <Font name="System Bold" size="25.0" />
          </font></Label>
       <Label fx:id="errorLabel" layoutX="910.0" layoutY="5.0" prefHeight="33.0" prefWidth="327.0" styleClass="errorLeb" />
+      <Label layoutX="180.0" layoutY="106.0" text="Temperature [C]:" />
+      <Label fx:id="firstCityTempLabel" layoutX="279.0" layoutY="106.0" prefHeight="17.0" prefWidth="221.0" />
    </children>
 </AnchorPane>

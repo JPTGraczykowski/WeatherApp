@@ -30,6 +30,9 @@ public class PrimaryController {
   @FXML
   private Label errorLabel;
 
+  @FXML
+  private Label firstCityTempLabel;
+
   public PrimaryController() {
   }
 
