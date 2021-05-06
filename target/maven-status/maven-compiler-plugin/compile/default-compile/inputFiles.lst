@@ -1,6 +1,8 @@
+/Users/jedrzej/learning/weather-app/src/main/java/org/openjfx/model/WeatherProvider.java
 /Users/jedrzej/learning/weather-app/src/main/java/org/openjfx/App.java
 /Users/jedrzej/learning/weather-app/src/main/java/org/openjfx/controller/PrimaryController.java
+/Users/jedrzej/learning/weather-app/src/main/java/org/openjfx/model/JsonReader.java
+/Users/jedrzej/learning/weather-app/src/main/java/org/openjfx/model/Constants.java
 /Users/jedrzej/learning/weather-app/src/main/java/module-info.java
-/Users/jedrzej/learning/weather-app/src/main/java/org/openjfx/model/StaticValues.java
 /Users/jedrzej/learning/weather-app/src/main/java/org/openjfx/view/ViewFactory.java
 /Users/jedrzej/learning/weather-app/src/main/java/org/openjfx/model/Weather.java
