@@ -1,7 +1,8 @@
-org/openjfx/model/StaticValues.class
 org/openjfx/model/Weather.class
-org/openjfx/model/WeatherApiConnectService.class
+org/openjfx/model/JsonReader.class
 module-info.class
 org/openjfx/controller/PrimaryController.class
 org/openjfx/App.class
 org/openjfx/view/ViewFactory.class
+org/openjfx/model/Constants.class
+org/openjfx/model/WeatherProvider.class
