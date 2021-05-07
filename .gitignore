@@ -1,5 +1,5 @@
-target
-.idea
-.class
+target/
+.idea/
+*.class
 **/config/Secrets.java
-.DS_Store
+*.DS_Store

@@ -1,13 +1,17 @@
 package org.openjfx.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import org.openjfx.model.Weather;
 import org.openjfx.model.WeatherProvider;
 
-public class PrimaryController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class PrimaryController implements Initializable {
 
   @FXML
   private TextField firstCity;
@@ -98,6 +102,19 @@ public class PrimaryController {
     secondCityWeatherProvider = new WeatherProvider("");
   }
 
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+    setHomeCityTextField(firstCity, "Lodz");
+    setWeatherForTheCity(
+      "Lodz", firstCityWeatherProvider,
+      errorLabel1, firstCityDateLabel1,
+      firstCityFeelsLikeTempLabel1, firstCityMaxTempLabel1,
+      firstCityMinTempLabel1, firstCityPressureLabel1,
+      firstCityHumidityLabel1, firstCityWindSpeedLabel1,
+      firstCityCloudsLabel1, firstCityDescriptionLabel1
+    );
+  }
+
   @FXML
   void firstShowButtonAction() {
     String cityName = getCityName(firstCity);
@@ -126,6 +143,10 @@ public class PrimaryController {
 
   private String getCityName(TextField city) {
     return city.getText();
+  }
+
+  private void setHomeCityTextField(TextField city, String cityName) {
+    city.setText(cityName);
   }
 
   private void setWeatherForTheCity(
