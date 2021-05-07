@@ -1,6 +1,7 @@
 package org.openjfx.model;
 
 import org.json.JSONObject;
+import org.openjfx.config.Secrets;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -22,7 +23,7 @@ public class WeatherProvider {
   public boolean setWeather() {
     try {
       weatherJson = JsonReader.readJsonFromUrl("http://api.openweathermap.org/data/2.5/weather?q=" +
-        city + "&appid=" + Constants.API_KEY + "&lang=en&units=metric");
+        city + "&appid=" + Secrets.API_KEY + "&lang=en&units=metric");
 
       mainWeatherJson = weatherJson.getJSONObject("main");
 

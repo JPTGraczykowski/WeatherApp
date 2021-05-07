@@ -22,33 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7205ddfa-e034-4822-8f6e-e5d1af04c534" name="Default Changelist" comment="Create a structure of weather data">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_json_json_20200518.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/model/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/model/JsonReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/model/WeatherProvider.java" afterDir="false" />
+    <list default="true" id="7205ddfa-e034-4822-8f6e-e5d1af04c534" name="Default Changelist" comment="Add .gitignore file">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/config/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/config/Secrets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/controller/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/controller/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/model/City.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/model/FullWeatherData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/model/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/model/GsonObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/model/StaticValues.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/model/WeatherApiConnectService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/primary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/WeatherApp-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/controller/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/controller/PrimaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/model/StaticValues.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/model/Weather.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/model/Weather.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/model/WeatherApiConnectService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/primary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/model/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/model/WeatherProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/model/WeatherProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +106,28 @@
       <option name="project" value="LOCAL" />
       <updated>1620051692499</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Show current weather for two cities">
+      <created>1620343011047</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1620343011047</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add .gitignore file">
+      <created>1620395181824</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620395181824</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add .gitignore file">
+      <created>1620395212837</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1620395212837</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,7 +146,9 @@
     <MESSAGE value="Add a ViewFactory class" />
     <MESSAGE value="Add a temp fields" />
     <MESSAGE value="Create a structure of weather data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create a structure of weather data" />
+    <MESSAGE value="Show current weather for two cities" />
+    <MESSAGE value="Add .gitignore file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add .gitignore file" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="418" key="#com.intellij.ide.util.MemberChooser" timestamp="1620339851555">
@@ -161,30 +164,30 @@
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state x="762" y="391" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2048.1280@0.0.2048.1280" timestamp="1620332951781" />
-    <state width="2006" height="372" key="GridCell.Tab.0.bottom" timestamp="1620342296430">
-      <screen x="0" y="0" width="2048" height="1280" />
+    <state width="2966" height="513" key="GridCell.Tab.0.bottom" timestamp="1620395016256">
+      <screen x="-88" y="-1692" width="3008" height="1692" />
     </state>
-    <state width="2966" height="502" key="GridCell.Tab.0.bottom/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252084" />
+    <state width="2966" height="513" key="GridCell.Tab.0.bottom/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1620395016256" />
     <state width="2006" height="366" key="GridCell.Tab.0.bottom/-88.-1692.3008.1692/0.0.2048.1280@0.0.2048.1280" timestamp="1620071015543" />
-    <state width="2006" height="372" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1620342296430" />
-    <state width="2006" height="372" key="GridCell.Tab.0.center" timestamp="1620342296429">
-      <screen x="0" y="0" width="2048" height="1280" />
+    <state width="2006" height="372" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1620343163733" />
+    <state width="2966" height="513" key="GridCell.Tab.0.center" timestamp="1620395016255">
+      <screen x="-88" y="-1692" width="3008" height="1692" />
     </state>
-    <state width="2966" height="502" key="GridCell.Tab.0.center/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252083" />
+    <state width="2966" height="513" key="GridCell.Tab.0.center/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1620395016255" />
     <state width="2006" height="366" key="GridCell.Tab.0.center/-88.-1692.3008.1692/0.0.2048.1280@0.0.2048.1280" timestamp="1620071015542" />
-    <state width="2006" height="372" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1620342296429" />
-    <state width="2006" height="372" key="GridCell.Tab.0.left" timestamp="1620342296428">
-      <screen x="0" y="0" width="2048" height="1280" />
+    <state width="2006" height="372" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1620343163732" />
+    <state width="2966" height="513" key="GridCell.Tab.0.left" timestamp="1620395016254">
+      <screen x="-88" y="-1692" width="3008" height="1692" />
     </state>
-    <state width="2966" height="502" key="GridCell.Tab.0.left/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252082" />
+    <state width="2966" height="513" key="GridCell.Tab.0.left/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1620395016254" />
     <state width="2006" height="366" key="GridCell.Tab.0.left/-88.-1692.3008.1692/0.0.2048.1280@0.0.2048.1280" timestamp="1620071015541" />
-    <state width="2006" height="372" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1620342296428" />
-    <state width="2006" height="372" key="GridCell.Tab.0.right" timestamp="1620342296430">
-      <screen x="0" y="0" width="2048" height="1280" />
+    <state width="2006" height="372" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1620343163732" />
+    <state width="2966" height="513" key="GridCell.Tab.0.right" timestamp="1620395016256">
+      <screen x="-88" y="-1692" width="3008" height="1692" />
     </state>
-    <state width="2966" height="502" key="GridCell.Tab.0.right/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1619466252084" />
+    <state width="2966" height="513" key="GridCell.Tab.0.right/-88.-1692.3008.1692/0.0.2048.1280@-88.-1692.3008.1692" timestamp="1620395016256" />
     <state width="2006" height="366" key="GridCell.Tab.0.right/-88.-1692.3008.1692/0.0.2048.1280@0.0.2048.1280" timestamp="1620071015542" />
-    <state width="2006" height="372" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1620342296430" />
+    <state width="2006" height="372" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1620343163732" />
     <state x="562" y="299" key="Maven.ArtifactSearchDialog" timestamp="1620334568168">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
@@ -193,6 +196,10 @@
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state x="512" y="218" key="SettingsEditor/0.0.2048.1280@0.0.2048.1280" timestamp="1620334645227" />
+    <state x="624" y="387" key="Vcs.Push.Dialog.v2" timestamp="1620343018610">
+      <screen x="0" y="0" width="2048" height="1280" />
+    </state>
+    <state x="624" y="387" key="Vcs.Push.Dialog.v2/0.0.2048.1280@0.0.2048.1280" timestamp="1620343018610" />
     <state x="737" y="532" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1620334636058">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
