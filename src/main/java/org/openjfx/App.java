@@ -3,7 +3,7 @@ package org.openjfx;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.openjfx.view.ViewFactory;
-import static org.openjfx.model.Constants.*;
+import static org.openjfx.config.Constants.*;
 
 import java.io.IOException;
 
