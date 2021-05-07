@@ -1,33 +1,41 @@
 package org.openjfx.model;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openjfx.config.Secrets;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WeatherProvider {
 
   private String city;
+  private final List<Weather> weatherForecast;
   private final Weather weather;
-
   private JSONObject weatherJson;
   private JSONObject mainWeatherJson;
 
   public WeatherProvider(String city) {
     this.city = city;
     weather = new Weather();
+    weatherForecast = new ArrayList<>();
   }
 
-  public boolean setWeather() {
+  public boolean setWeatherForecast() {
     try {
-      weatherJson = JsonReader.readJsonFromUrl("http://api.openweathermap.org/data/2.5/weather?q=" +
-        city + "&appid=" + Secrets.API_KEY + "&lang=en&units=metric");
+      JSONObject apiResponse = JsonReader.readJsonFromUrl("http://api.openweathermap.org/data/2.5/forecast?q=" +
+        city + "&cnt=33&lang=en&units=metric&appid=" + Secrets.API_KEY);
 
-      mainWeatherJson = weatherJson.getJSONObject("main");
+      JSONArray weatherForecastJson = apiResponse.getJSONArray("list");
 
-      setWeatherAttributes();
+      for (int jsonElement = 0; jsonElement < 33; jsonElement += 8) {
+        weatherJson = weatherForecastJson.getJSONObject(jsonElement);
+        mainWeatherJson = weatherJson.getJSONObject("main");
+        setWeather();
+        weatherForecast.add(weather);
+      }
+
       return true;
     } catch (IOException e) {
       e.printStackTrace();
@@ -35,7 +43,7 @@ public class WeatherProvider {
     }
   }
 
-  private void setWeatherAttributes() {
+  private void setWeather() {
     setDate();
     setFeelsLikeTemp();
     setMaxTemp();
@@ -48,10 +56,9 @@ public class WeatherProvider {
   }
 
   private void setDate() {
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-    Date date = new Date();
-
-    weather.setDate(formatter.format(date));
+    String date = weatherJson.getString("dt_txt");
+    date = date.substring(0,9);
+    weather.setDate(date);
   }
 
   private void setFeelsLikeTemp() {
@@ -97,5 +104,9 @@ public class WeatherProvider {
 
   public Weather getWeather() {
     return weather;
+  }
+
+  public List<Weather> getWeatherForecast() {
+    return weatherForecast;
   }
 }

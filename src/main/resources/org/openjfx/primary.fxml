@@ -2,62 +2,254 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="901.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="firstCity" layoutX="317.0" layoutY="48.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
-      <TextField fx:id="secondCity" layoutX="317.0" layoutY="440.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
-      <Button layoutX="582.0" layoutY="45.0" mnemonicParsing="false" onAction="#firstShowButtonAction" prefHeight="33.0" prefWidth="118.0" styleClass="button" text="Forecast" />
+      <TextField fx:id="firstCity" layoutX="317.0" layoutY="62.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
+      <TextField fx:id="secondCity" layoutX="306.0" layoutY="440.0" prefHeight="27.0" prefWidth="261.0" styleClass="textField" />
+      <Button layoutX="582.0" layoutY="59.0" mnemonicParsing="false" onAction="#firstShowButtonAction" prefHeight="33.0" prefWidth="118.0" styleClass="button" text="Forecast" />
       <Button layoutX="582.0" layoutY="437.0" mnemonicParsing="false" onAction="#secondShowButtonAction" prefHeight="33.0" prefWidth="118.0" styleClass="button" text="Forecast" />
-      <Label fx:id="helpLabel1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="55.0" layoutY="40.0" prefHeight="42.0" prefWidth="250.0" styleClass="bigLabel" text="Type city:" />
-      <Label fx:id="helpLabel2" alignment="CENTER_RIGHT" layoutX="53.0" layoutY="431.0" prefHeight="42.0" prefWidth="250.0" styleClass="bigLabel" text="Type a city:" />
-      <Label fx:id="titleLabel" alignment="CENTER" layoutX="365.0" layoutY="1.0" prefHeight="42.0" prefWidth="521.0" styleClass="title" text="Weather App">
+      <Label fx:id="helpLabel1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="53.0" layoutY="54.0" prefHeight="42.0" prefWidth="250.0" styleClass="bigLabel" text="Type city:" />
+      <Label fx:id="helpLabel2" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="430.0" prefHeight="42.0" prefWidth="250.0" styleClass="bigLabel" text="Type a city:" />
+      <Label fx:id="titleLabel" alignment="CENTER" layoutX="440.0" prefHeight="42.0" prefWidth="521.0" styleClass="title" text="Weather App">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Label>
-      <Label fx:id="errorLabel" layoutX="910.0" layoutY="5.0" prefHeight="33.0" prefWidth="327.0" styleClass="errorLeb" />
-      <Label layoutX="194.0" layoutY="170.0" text="Feels Like Temperature [C]:" />
-      <Label fx:id="firstCityFeelsLikeTempLabel1" layoutX="348.0" layoutY="170.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="194.0" layoutY="149.0" text="Date:" />
-      <Label fx:id="firstCityDateLabel1" layoutX="237.0" layoutY="149.0" prefHeight="17.0" prefWidth="131.0" />
-      <ImageView fx:id="firstCityWeatherIcon1" fitHeight="42.0" fitWidth="52.0" layoutX="749.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="194.0" layoutY="196.0" text="Max. Temperature [C]:" />
-      <Label fx:id="firstCityMaxTempLabel1" layoutX="324.0" layoutY="196.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="194.0" layoutY="221.0" text="Min. Temperature [C]:" />
-      <Label fx:id="firstCityMinTempLabel1" layoutX="324.0" layoutY="221.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="194.0" layoutY="247.0" text="Pressure [hPa]:" />
-      <Label fx:id="firstCityPressureLabel1" layoutX="290.0" layoutY="247.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="194.0" layoutY="271.0" prefHeight="17.0" prefWidth="83.0" text="Humidity [%]:" />
-      <Label fx:id="firstCityHumidityLabel1" layoutX="277.0" layoutY="271.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="194.0" layoutY="298.0" prefHeight="17.0" prefWidth="108.0" text="Wind Speed [m/s]:" />
-      <Label fx:id="firstCityWindSpeedLabel1" layoutX="305.0" layoutY="298.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="194.0" layoutY="324.0" prefHeight="17.0" prefWidth="69.0" text="Clouds [%]:" />
-      <Label fx:id="firstCityCloudsLabel1" layoutX="267.0" layoutY="324.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="194.0" layoutY="350.0" prefHeight="17.0" prefWidth="123.0" text="General Description:" />
-      <Label fx:id="firstCityDescriptionLabel1" layoutX="313.0" layoutY="350.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label fx:id="errorLabel1" layoutX="312.0" layoutY="93.0" prefHeight="27.0" prefWidth="261.0" textFill="RED" />
-      <Label layoutX="190.0" layoutY="541.0" text="Feels Like Temperature [C]:" />
-      <Label fx:id="secondCityFeelsLikeTempLabel1" layoutX="344.0" layoutY="541.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="190.0" layoutY="520.0" text="Date:" />
-      <Label fx:id="secondCityDateLabel1" layoutX="233.0" layoutY="520.0" prefHeight="17.0" prefWidth="131.0" />
-      <Label layoutX="190.0" layoutY="567.0" text="Max. Temperature [C]:" />
-      <Label fx:id="secondCityMaxTempLabel1" layoutX="320.0" layoutY="567.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="190.0" layoutY="592.0" text="Min. Temperature [C]:" />
-      <Label fx:id="secondCityMinTempLabel1" layoutX="320.0" layoutY="592.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="190.0" layoutY="618.0" text="Pressure [hPa]:" />
-      <Label fx:id="secondCityPressureLabel1" layoutX="286.0" layoutY="618.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="190.0" layoutY="642.0" prefHeight="17.0" prefWidth="83.0" text="Humidity [%]:" />
-      <Label fx:id="secondCityHumidityLabel1" layoutX="273.0" layoutY="642.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="190.0" layoutY="669.0" prefHeight="17.0" prefWidth="108.0" text="Wind Speed [m/s]:" />
-      <Label fx:id="secondCityWindSpeedLabel1" layoutX="301.0" layoutY="669.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="190.0" layoutY="695.0" prefHeight="17.0" prefWidth="69.0" text="Clouds [%]:" />
-      <Label fx:id="secondCityCloudsLabel1" layoutX="263.0" layoutY="695.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label layoutX="190.0" layoutY="721.0" prefHeight="17.0" prefWidth="123.0" text="General Description:" />
-      <Label fx:id="secondCityDescriptionLabel1" layoutX="309.0" layoutY="721.0" prefHeight="17.0" prefWidth="221.0" />
-      <Label fx:id="errorLabel2" layoutX="312.0" layoutY="482.0" prefHeight="27.0" prefWidth="261.0" textFill="RED" />
+      <Label fx:id="errorLabel1" layoutX="717.0" layoutY="62.0" prefHeight="27.0" prefWidth="261.0" textFill="RED" />
+      <Label fx:id="errorLabel2" layoutX="728.0" layoutY="440.0" prefHeight="27.0" prefWidth="261.0" textFill="RED" />
+      <Pane layoutX="1.0" layoutY="107.0" prefHeight="283.0" prefWidth="318.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="firstCityDateLabel1" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="firstCityFeelsLikeTempLabel1" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="firstCityMaxTempLabel1" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="firstCityMinTempLabel1" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="firstCityPressureLabel1" layoutX="105.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="firstCityHumidityLabel1" layoutX="95.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="firstCityWindSpeedLabel1" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="firstCityCloudsLabel1" layoutX="88.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="firstCityDescriptionLabel1" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+            <Separator layoutX="273.0" layoutY="14.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="272.0" layoutY="107.0" prefHeight="283.0" prefWidth="318.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="firstCityDateLabel2" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="firstCityFeelsLikeTempLabel2" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="firstCityMaxTempLabel2" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="firstCityMinTempLabel2" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="firstCityPressureLabel2" layoutX="107.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="firstCityHumidityLabel2" layoutX="97.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="firstCityWindSpeedLabel2" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="firstCityCloudsPercentageLabel2" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="firstCityDescriptionLabel2" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+            <Separator layoutX="269.0" layoutY="12.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="540.0" layoutY="107.0" prefHeight="283.0" prefWidth="318.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="firstCityDateLabel3" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="firstCityFeelsLikeTempLabel3" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="firstCityMaxTempLabel3" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="firstCityMinTempLabel3" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="firstCityPressureLabel3" layoutX="108.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="firstCityHumidityLabel3" layoutX="97.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="firstCityWindSpeedLabel3" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="firstCityCloudsPercentageLabel3" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="firstCityDescriptionLabel3" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+            <Separator layoutX="250.0" layoutY="11.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="790.0" layoutY="107.0" prefHeight="283.0" prefWidth="318.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="firstCityDateLabel4" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="firstCityFeelsLikeTempLabel4" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="firstCityMaxTempLabel4" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="firstCityMinTempLabel4" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="firstCityPressureLabel4" layoutX="108.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="firstCityHumidityLabel4" layoutX="97.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="firstCityWindSpeedLabel4" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="firstCityCloudsPercentageLabel4" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="firstCityDescriptionLabel4" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+            <Separator layoutX="293.0" layoutY="9.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="1082.0" layoutY="107.0" prefHeight="283.0" prefWidth="301.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="firstCityDateLabel5" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="firstCityFeelsLikeTempLabel5" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="firstCityMaxTempLabel5" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="firstCityMinTempLabel5" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="firstCityPressureLabel5" layoutX="105.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="firstCityHumidityLabel5" layoutX="97.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="firstCityWindSpeedLabel5" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="firstCityCloudsPercentageLabel5" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="firstCityDescriptionLabel5" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+         </children>
+      </Pane>
+      <Separator layoutX="14.0" layoutY="401.0" prefHeight="1.0" prefWidth="1359.0" />
+      <Pane layoutX="3.0" layoutY="495.0" prefHeight="283.0" prefWidth="318.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="secondCityDateLabel1" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="secondCityFeelsLikeTempLabel1" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="secondCityMaxTempLabel1" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="secondCityMinTempLabel1" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="secondCityPressureLabel1" layoutX="105.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="secondCityHumidityLabel1" layoutX="95.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="secondCityWindSpeedLabel1" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="secondCityCloudsLabel1" layoutX="88.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="secondCityDescriptionLabel1" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+            <Separator layoutX="273.0" layoutY="14.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="274.0" layoutY="495.0" prefHeight="283.0" prefWidth="318.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="secondCityDateLabel2" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="secondCityFeelsLikeTempLabel2" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="secondCityMaxTempLabel2" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="secondCityMinTempLabel2" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="secondCityPressureLabel2" layoutX="107.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="secondCityHumidityLabel2" layoutX="97.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="secondCityWindSpeedLabel2" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="secondCityCloudsPercentageLabel2" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="secondCityDescriptionLabel2" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+            <Separator layoutX="269.0" layoutY="12.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="542.0" layoutY="495.0" prefHeight="283.0" prefWidth="318.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="secondCityDateLabel3" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="secondCityFeelsLikeTempLabel3" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="secondCityMaxTempLabel3" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="secondCityMinTempLabel3" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="secondCityPressureLabel3" layoutX="108.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="secondCityHumidityLabel3" layoutX="97.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="secondCityWindSpeedLabel3" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="secondCityCloudsPercentageLabel3" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="secondCityDescriptionLabel3" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+            <Separator layoutX="250.0" layoutY="11.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="792.0" layoutY="495.0" prefHeight="283.0" prefWidth="318.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="secondCityDateLabel4" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="secondCityFeelsLikeTempLabel4" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="secondCityMaxTempLabel4" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="secondCityMinTempLabel4" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="secondCityPressureLabel4" layoutX="108.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="secondCityHumidityLabel4" layoutX="97.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="secondCityWindSpeedLabel4" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="secondCityCloudsPercentageLabel4" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="secondCityDescriptionLabel4" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+            <Separator layoutX="293.0" layoutY="9.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="1084.0" layoutY="495.0" prefHeight="283.0" prefWidth="301.0">
+         <children>
+            <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="87.0" text="Min. Temperature [C]:" />
+            <Label layoutX="14.0" layoutY="117.0" text="Pressure [hPa]:" />
+            <Label layoutX="14.0" layoutY="151.0" text="Humidity [%]:" />
+            <Label layoutX="14.0" layoutY="181.0" text="Wind Speed [m/s]:" />
+            <Label layoutX="14.0" layoutY="212.0" text="Clouds [%]:" />
+            <Label layoutX="14.0" layoutY="247.0" text="General Description:" />
+            <Label layoutX="14.0" layoutY="14.0" text="Date:" />
+            <Label fx:id="secondCityDateLabel5" layoutX="59.0" layoutY="14.0" prefHeight="17.0" prefWidth="250.0" />
+            <Label fx:id="secondCityFeelsLikeTempLabel5" layoutX="173.0" layoutY="35.0" prefHeight="17.0" prefWidth="131.0" />
+            <Label fx:id="secondCityMaxTempLabel5" layoutX="145.0" layoutY="59.0" prefHeight="17.0" prefWidth="162.0" />
+            <Label fx:id="secondCityMinTempLabel5" layoutX="146.0" layoutY="87.0" prefHeight="17.0" prefWidth="150.0" />
+            <Label fx:id="secondCityPressureLabel5" layoutX="105.0" layoutY="117.0" prefHeight="17.0" prefWidth="188.0" />
+            <Label fx:id="secondCityHumidityLabel5" layoutX="97.0" layoutY="151.0" prefHeight="17.0" prefWidth="207.0" />
+            <Label fx:id="secondCityWindSpeedLabel5" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
+            <Label fx:id="secondCityCloudsPercentageLabel5" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
+            <Label fx:id="secondCityDescriptionLabel5" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
