@@ -1,5 +1,5 @@
 target
 .idea
-*.class
-src/main/java/org.openjfx/config/Secrets.java
-*.DS_Store
+.class
+**/config/Secrets.java
+.DS_Store
