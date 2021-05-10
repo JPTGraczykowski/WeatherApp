@@ -334,15 +334,14 @@ public class PrimaryController implements Initializable {
 
   @FXML
   void secondShowButtonAction() {
-//    String cityName = getCityName(secondCity);
-//    setWeatherForTheCity(
-//      cityName, secondCityWeatherProvider,
-//      errorLabel2, secondCityDateLabel1,
-//      secondCityFeelsLikeTempLabel1, secondCityMaxTempLabel1,
-//      secondCityMinTempLabel1, secondCityPressureLabel1,
-//      secondCityHumidityLabel1, secondCityWindSpeedLabel1,
-//      secondCityCloudsLabel1, secondCityDescriptionLabel1
-//    );
+    secondCityWeatherProvider = new WeatherProvider();
+    String cityName = getCityName(secondCity);
+    setWeatherForecast(
+      cityName,
+      secondCityWeatherProvider,
+      getListOfLabelsForFirstCity("secondCity"),
+      errorLabel2
+    );
   }
 
   private String getCityName(TextField city) {
@@ -370,7 +369,7 @@ public class PrimaryController implements Initializable {
         for(Weather weather: weatherForecast) {
           setDailyWeather(weather, listOfLabels.get(index));
           index++;
-        };
+        }
       } else {
         errorLabel.setText(Constants.wrongCityError);
       }
@@ -398,6 +397,8 @@ public class PrimaryController implements Initializable {
       day5Labels(city)
     );
   }
+
+  // == List of labels according to the city ====================================
 
   private List<Label> day1Labels(String city) {
     if (city.equals("firstCity")) {
