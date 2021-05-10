@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
+import org.openjfx.config.Constants;
 import org.openjfx.model.Weather;
 import org.openjfx.model.WeatherProvider;
 
@@ -301,8 +301,8 @@ public class PrimaryController implements Initializable {
   @FXML
   private Label secondCityDescriptionLabel5;
 
-  private final WeatherProvider firstCityWeatherProvider;
-  private final WeatherProvider secondCityWeatherProvider;
+  private WeatherProvider firstCityWeatherProvider;
+  private WeatherProvider secondCityWeatherProvider;
 
   public PrimaryController() {
     firstCityWeatherProvider = new WeatherProvider("");
@@ -317,6 +317,7 @@ public class PrimaryController implements Initializable {
 
   @FXML
   void firstShowButtonAction() {
+    firstCityWeatherProvider = new WeatherProvider("");
     String cityName = getCityName(firstCity);
     setWeatherForecast(cityName, firstCityWeatherProvider, getListOfLabelsForFirstCity(), errorLabel1);
   }

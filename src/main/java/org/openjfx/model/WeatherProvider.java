@@ -12,30 +12,45 @@ public class WeatherProvider {
 
   private String city;
   private final List<Weather> weatherForecast;
-  private final Weather weather;
+  private Weather weather;
+  private JSONObject apiResponse;
   private JSONObject weatherJson;
   private JSONObject mainWeatherJson;
 
   public WeatherProvider(String city) {
     this.city = city;
-    weather = new Weather();
     weatherForecast = new ArrayList<>();
   }
 
   public boolean setWeatherForecast() {
-    try {
-      JSONObject apiResponse = JsonReader.readJsonFromUrl("http://api.openweathermap.org/data/2.5/forecast?q=" +
-        city + "&cnt=33&lang=en&units=metric&appid=" + Secrets.API_KEY);
+      boolean succeeded = getWeatherApiResponse();
+      if (succeeded) {
+        JSONArray weatherForecastJson = apiResponse.getJSONArray("list");
+        int listLength = weatherForecastJson.length();
 
-      JSONArray weatherForecastJson = apiResponse.getJSONArray("list");
+        for (int jsonElement = 0; jsonElement < listLength; jsonElement++) {
+          weatherJson = weatherForecastJson.getJSONObject(jsonElement);
+          mainWeatherJson = weatherJson.getJSONObject("main");
 
-      for (int jsonElement = 0; jsonElement < 33; jsonElement += 8) {
-        weatherJson = weatherForecastJson.getJSONObject(jsonElement);
-        mainWeatherJson = weatherJson.getJSONObject("main");
-        setWeather();
-        weatherForecast.add(weather);
+          // first weather object or weather object at 15:00
+          if (jsonElement == 0 || isMiddleDay(weatherJson.getString("dt_txt"))) {
+            weather = new Weather();
+            setWeather();
+            weatherForecast.add(weather);
+          }
+        }
       }
+      return succeeded;
+  }
 
+  private boolean getWeatherApiResponse() {
+    try {
+      apiResponse = JsonReader.readJsonFromUrl(
+        "http://api.openweathermap.org/data/2.5/forecast?q=" +
+          city +
+          "&cnt=33&lang=en&units=metric&appid=" +
+          Secrets.API_KEY
+      );
       return true;
     } catch (IOException e) {
       e.printStackTrace();
@@ -57,7 +72,7 @@ public class WeatherProvider {
 
   private void setDate() {
     String date = weatherJson.getString("dt_txt");
-    date = date.substring(0,9);
+    date = date.substring(0,16);
     weather.setDate(date);
   }
 
@@ -70,7 +85,7 @@ public class WeatherProvider {
   }
 
   private void setMinTemp() {
-    weather.setMaxTemp(mainWeatherJson.getDouble("temp_min"));
+    weather.setMinTemp(mainWeatherJson.getDouble("temp_min"));
   }
 
   private void setPressure() {
@@ -98,12 +113,13 @@ public class WeatherProvider {
     );
   }
 
-  public void setCity(String city) {
-    this.city = city;
+  private boolean isMiddleDay(String date) {
+    String hour = date.substring(10,13);
+    return hour.trim().equals("15");
   }
 
-  public Weather getWeather() {
-    return weather;
+  public void setCity(String city) {
+    this.city = city;
   }
 
   public List<Weather> getWeatherForecast() {
