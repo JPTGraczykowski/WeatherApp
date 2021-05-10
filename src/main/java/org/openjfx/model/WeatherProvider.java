@@ -1,33 +1,55 @@
 package org.openjfx.model;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openjfx.config.Secrets;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WeatherProvider {
 
   private String city;
-  private final Weather weather;
-
+  private final List<Weather> weatherForecast;
+  private Weather weather;
+  private JSONObject apiResponse;
   private JSONObject weatherJson;
   private JSONObject mainWeatherJson;
 
-  public WeatherProvider(String city) {
-    this.city = city;
-    weather = new Weather();
+  public WeatherProvider() {
+    weatherForecast = new ArrayList<>();
   }
 
-  public boolean setWeather() {
+  public boolean setWeatherForecast() {
+      boolean succeeded = getWeatherApiResponse();
+      if (succeeded) {
+        JSONArray weatherForecastJson = apiResponse.getJSONArray("list");
+        int listLength = weatherForecastJson.length();
+
+        for (int jsonElement = 0; jsonElement < listLength; jsonElement++) {
+          weatherJson = weatherForecastJson.getJSONObject(jsonElement);
+          mainWeatherJson = weatherJson.getJSONObject("main");
+
+          // first weather object or weather object at 15:00
+          if (jsonElement == 0 || isMiddleDay(weatherJson.getString("dt_txt"))) {
+            weather = new Weather();
+            setWeather();
+            weatherForecast.add(weather);
+          }
+        }
+      }
+      return succeeded;
+  }
+
+  private boolean getWeatherApiResponse() {
     try {
-      weatherJson = JsonReader.readJsonFromUrl("http://api.openweathermap.org/data/2.5/weather?q=" +
-        city + "&appid=" + Secrets.API_KEY + "&lang=en&units=metric");
-
-      mainWeatherJson = weatherJson.getJSONObject("main");
-
-      setWeatherAttributes();
+      apiResponse = JsonReader.readJsonFromUrl(
+        "http://api.openweathermap.org/data/2.5/forecast?q=" +
+          city +
+          "&cnt=33&lang=en&units=metric&appid=" +
+          Secrets.API_KEY
+      );
       return true;
     } catch (IOException e) {
       e.printStackTrace();
@@ -35,7 +57,7 @@ public class WeatherProvider {
     }
   }
 
-  private void setWeatherAttributes() {
+  private void setWeather() {
     setDate();
     setFeelsLikeTemp();
     setMaxTemp();
@@ -48,10 +70,9 @@ public class WeatherProvider {
   }
 
   private void setDate() {
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-    Date date = new Date();
-
-    weather.setDate(formatter.format(date));
+    String date = weatherJson.getString("dt_txt");
+    date = date.substring(0,16);
+    weather.setDate(date);
   }
 
   private void setFeelsLikeTemp() {
@@ -63,7 +84,7 @@ public class WeatherProvider {
   }
 
   private void setMinTemp() {
-    weather.setMaxTemp(mainWeatherJson.getDouble("temp_min"));
+    weather.setMinTemp(mainWeatherJson.getDouble("temp_min"));
   }
 
   private void setPressure() {
@@ -91,11 +112,17 @@ public class WeatherProvider {
     );
   }
 
+  private boolean isMiddleDay(String date) {
+    String hour = date.substring(10,13);
+    String middleDayHour = "15";
+    return hour.trim().equals(middleDayHour);
+  }
+
   public void setCity(String city) {
     this.city = city;
   }
 
-  public Weather getWeather() {
-    return weather;
+  public List<Weather> getWeatherForecast() {
+    return weatherForecast;
   }
 }

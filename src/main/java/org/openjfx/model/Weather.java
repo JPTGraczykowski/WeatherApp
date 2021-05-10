@@ -1,7 +1,5 @@
 package org.openjfx.model;
 
-
-
 public class Weather {
   private double feelsLikeTemp;
   private double maxTemp;
@@ -13,8 +11,7 @@ public class Weather {
   private String description;
   private String date;
 
-  public Weather() {
-  }
+  public Weather() {}
 
   public double getFeelsLikeTemp() {
     return feelsLikeTemp;
