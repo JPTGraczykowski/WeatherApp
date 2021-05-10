@@ -305,21 +305,31 @@ public class PrimaryController implements Initializable {
   private WeatherProvider secondCityWeatherProvider;
 
   public PrimaryController() {
-    firstCityWeatherProvider = new WeatherProvider("");
-    secondCityWeatherProvider = new WeatherProvider("");
+    firstCityWeatherProvider = new WeatherProvider();
+    secondCityWeatherProvider = new WeatherProvider();
   }
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    setHomeCityTextField(firstCity, "Lodz");
-    setWeatherForecast("Lodz", firstCityWeatherProvider, getListOfLabelsForFirstCity(), errorLabel1);
+    setHomeCityTextField(firstCity);
+    setWeatherForecast(
+      Constants.homeCityName,
+      firstCityWeatherProvider,
+      getListOfLabelsForFirstCity("firstCity"),
+      errorLabel1
+    );
   }
 
   @FXML
   void firstShowButtonAction() {
-    firstCityWeatherProvider = new WeatherProvider("");
+    firstCityWeatherProvider = new WeatherProvider();
     String cityName = getCityName(firstCity);
-    setWeatherForecast(cityName, firstCityWeatherProvider, getListOfLabelsForFirstCity(), errorLabel1);
+    setWeatherForecast(
+      cityName,
+      firstCityWeatherProvider,
+      getListOfLabelsForFirstCity("firstCity"),
+      errorLabel1
+    );
   }
 
   @FXML
@@ -339,8 +349,12 @@ public class PrimaryController implements Initializable {
     return city.getText();
   }
 
-  private void setHomeCityTextField(TextField city, String cityName) {
-    city.setText(cityName);
+  private void setHomeCityTextField(TextField city) {
+    city.setText(Constants.homeCityName);
+  }
+
+  private boolean validateCityName(String cityName) {
+    return !cityName.isEmpty();
   }
 
   private void setWeatherForecast(String cityName,
@@ -358,10 +372,10 @@ public class PrimaryController implements Initializable {
           index++;
         };
       } else {
-        errorLabel.setText("Wrong City!");
+        errorLabel.setText(Constants.wrongCityError);
       }
     } else {
-      errorLabel.setText("City Name is required!");
+      errorLabel.setText(Constants.missingCityError);
     }
   }
 
@@ -377,65 +391,111 @@ public class PrimaryController implements Initializable {
       labels.get(8).setText(weather.getDescription());
   }
 
-  private List<List<Label>> getListOfLabelsForFirstCity() {
+  private List<List<Label>> getListOfLabelsForFirstCity(String city) {
     return Arrays.asList(
-      firstCityDay1Labels(), firstCityDay2Labels(),
-      firstCityDay3Labels(), firstCityDay4Labels(),
-      firstCityDay5Labels()
+      day1Labels(city), day2Labels(city),
+      day3Labels(city), day4Labels(city),
+      day5Labels(city)
     );
   }
 
-  private List<Label> firstCityDay1Labels() {
-    return Arrays.asList(
-      firstCityDateLabel1,
-      firstCityFeelsLikeTempLabel1, firstCityMaxTempLabel1,
-      firstCityMinTempLabel1, firstCityPressureLabel1,
-      firstCityHumidityLabel1, firstCityWindSpeedLabel1,
-      firstCityCloudsLabel1, firstCityDescriptionLabel1
-    );
+  private List<Label> day1Labels(String city) {
+    if (city.equals("firstCity")) {
+      return Arrays.asList(
+        firstCityDateLabel1,
+        firstCityFeelsLikeTempLabel1, firstCityMaxTempLabel1,
+        firstCityMinTempLabel1, firstCityPressureLabel1,
+        firstCityHumidityLabel1, firstCityWindSpeedLabel1,
+        firstCityCloudsLabel1, firstCityDescriptionLabel1
+      );
+    } else {
+      return Arrays.asList(
+        secondCityDateLabel1,
+        secondCityFeelsLikeTempLabel1, secondCityMaxTempLabel1,
+        secondCityMinTempLabel1, secondCityPressureLabel1,
+        secondCityHumidityLabel1, secondCityWindSpeedLabel1,
+        secondCityCloudsLabel1, secondCityDescriptionLabel1
+      );
+    }
   }
 
-  private List<Label> firstCityDay2Labels() {
-    return Arrays.asList(
-      firstCityDateLabel2,
-      firstCityFeelsLikeTempLabel2, firstCityMaxTempLabel2,
-      firstCityMinTempLabel2, firstCityPressureLabel2,
-      firstCityHumidityLabel2, firstCityWindSpeedLabel2,
-      firstCityCloudsLabel2, firstCityDescriptionLabel2
-    );
+  private List<Label> day2Labels(String city) {
+    if (city.equals("firstCity")) {
+      return Arrays.asList(
+        firstCityDateLabel2,
+        firstCityFeelsLikeTempLabel2, firstCityMaxTempLabel2,
+        firstCityMinTempLabel2, firstCityPressureLabel2,
+        firstCityHumidityLabel2, firstCityWindSpeedLabel2,
+        firstCityCloudsLabel2, firstCityDescriptionLabel2
+      );
+    } else {
+      return Arrays.asList(
+        secondCityDateLabel2,
+        secondCityFeelsLikeTempLabel2, secondCityMaxTempLabel2,
+        secondCityMinTempLabel2, secondCityPressureLabel2,
+        secondCityHumidityLabel2, secondCityWindSpeedLabel2,
+        secondCityCloudsLabel2, secondCityDescriptionLabel2
+      );
+    }
   }
 
-  private List<Label> firstCityDay3Labels() {
-    return Arrays.asList(
-      firstCityDateLabel3,
-      firstCityFeelsLikeTempLabel3, firstCityMaxTempLabel3,
-      firstCityMinTempLabel3, firstCityPressureLabel3,
-      firstCityHumidityLabel3, firstCityWindSpeedLabel3,
-      firstCityCloudsLabel3, firstCityDescriptionLabel3
-    );
+  private List<Label> day3Labels(String city) {
+    if (city.equals("firstCity")) {
+      return Arrays.asList(
+        firstCityDateLabel3,
+        firstCityFeelsLikeTempLabel3, firstCityMaxTempLabel3,
+        firstCityMinTempLabel3, firstCityPressureLabel3,
+        firstCityHumidityLabel3, firstCityWindSpeedLabel3,
+        firstCityCloudsLabel3, firstCityDescriptionLabel3
+      );
+    } else {
+      return Arrays.asList(
+        secondCityDateLabel3,
+        secondCityFeelsLikeTempLabel3, secondCityMaxTempLabel3,
+        secondCityMinTempLabel3, secondCityPressureLabel3,
+        secondCityHumidityLabel3, secondCityWindSpeedLabel3,
+        secondCityCloudsLabel3, secondCityDescriptionLabel3
+      );
+    }
   }
 
-  private List<Label> firstCityDay4Labels() {
-    return Arrays.asList(
-      firstCityDateLabel4,
-      firstCityFeelsLikeTempLabel4, firstCityMaxTempLabel4,
-      firstCityMinTempLabel4, firstCityPressureLabel4,
-      firstCityHumidityLabel4, firstCityWindSpeedLabel4,
-      firstCityCloudsLabel4, firstCityDescriptionLabel4
-    );
+  private List<Label> day4Labels(String city) {
+    if (city.equals("firstCity")) {
+      return Arrays.asList(
+        firstCityDateLabel4,
+        firstCityFeelsLikeTempLabel4, firstCityMaxTempLabel4,
+        firstCityMinTempLabel4, firstCityPressureLabel4,
+        firstCityHumidityLabel4, firstCityWindSpeedLabel4,
+        firstCityCloudsLabel4, firstCityDescriptionLabel4
+      );
+    } else {
+      return Arrays.asList(
+        secondCityDateLabel4,
+        secondCityFeelsLikeTempLabel4, secondCityMaxTempLabel4,
+        secondCityMinTempLabel4, secondCityPressureLabel4,
+        secondCityHumidityLabel4, secondCityWindSpeedLabel4,
+        secondCityCloudsLabel4, secondCityDescriptionLabel4
+      );
+    }
   }
 
-  private List<Label> firstCityDay5Labels() {
-    return Arrays.asList(
-      firstCityDateLabel5,
-      firstCityFeelsLikeTempLabel5, firstCityMaxTempLabel5,
-      firstCityMinTempLabel5, firstCityPressureLabel5,
-      firstCityHumidityLabel5, firstCityWindSpeedLabel5,
-      firstCityCloudsLabel5, firstCityDescriptionLabel5
-    );
-  }
-
-  private boolean validateCityName(String cityName) {
-    return !cityName.isEmpty();
+  private List<Label> day5Labels(String city) {
+    if (city.equals("firstCity")) {
+      return Arrays.asList(
+        firstCityDateLabel5,
+        firstCityFeelsLikeTempLabel5, firstCityMaxTempLabel5,
+        firstCityMinTempLabel5, firstCityPressureLabel5,
+        firstCityHumidityLabel5, firstCityWindSpeedLabel5,
+        firstCityCloudsLabel5, firstCityDescriptionLabel5
+      );
+    } else {
+      return Arrays.asList(
+        secondCityDateLabel5,
+        secondCityFeelsLikeTempLabel5, secondCityMaxTempLabel5,
+        secondCityMinTempLabel5, secondCityPressureLabel5,
+        secondCityHumidityLabel5, secondCityWindSpeedLabel5,
+        secondCityCloudsLabel5, secondCityDescriptionLabel5
+      );
+    }
   }
 }

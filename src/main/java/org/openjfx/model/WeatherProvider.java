@@ -17,8 +17,7 @@ public class WeatherProvider {
   private JSONObject weatherJson;
   private JSONObject mainWeatherJson;
 
-  public WeatherProvider(String city) {
-    this.city = city;
+  public WeatherProvider() {
     weatherForecast = new ArrayList<>();
   }
 
@@ -115,7 +114,8 @@ public class WeatherProvider {
 
   private boolean isMiddleDay(String date) {
     String hour = date.substring(10,13);
-    return hour.trim().equals("15");
+    String middleDayHour = "15";
+    return hour.trim().equals(middleDayHour);
   }
 
   public void setCity(String city) {
