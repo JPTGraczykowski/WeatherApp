@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="901.0" prefWidth="1251.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainArea" prefHeight="850.0" prefWidth="1251.0" styleClass="mainArea" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="firstCity" layoutX="317.0" layoutY="62.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
       <TextField fx:id="secondCity" layoutX="306.0" layoutY="440.0" prefHeight="27.0" prefWidth="261.0" styleClass="textField" />
@@ -20,8 +20,8 @@
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Label>
-      <Label fx:id="errorLabel1" layoutX="717.0" layoutY="62.0" prefHeight="27.0" prefWidth="261.0" textFill="RED" />
-      <Label fx:id="errorLabel2" layoutX="728.0" layoutY="440.0" prefHeight="27.0" prefWidth="261.0" textFill="RED" />
+      <Label fx:id="errorLabel1" layoutX="717.0" layoutY="62.0" prefHeight="27.0" prefWidth="261.0" styleClass="errorLabel" textFill="RED" />
+      <Label fx:id="errorLabel2" layoutX="728.0" layoutY="440.0" prefHeight="27.0" prefWidth="261.0" styleClass="errorLabel" textFill="RED" />
       <Pane layoutX="1.0" layoutY="107.0" prefHeight="283.0" prefWidth="318.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
@@ -251,5 +251,6 @@
             <Label fx:id="secondCityDescriptionLabel5" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
          </children>
       </Pane>
+      <Label layoutX="639.0" layoutY="820.0" styleClass="footer" text="Jedrzej Graczykowski | 2021" />
    </children>
 </AnchorPane>

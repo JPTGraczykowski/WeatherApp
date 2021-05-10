@@ -29,7 +29,7 @@ public class ViewFactory {
     Scene scene = new Scene(parent, 1366, 850);
     Stage stage = new Stage();
     stage.setScene(scene);
-    scene.getStylesheets().add("/org.openjfx/style.css");
+    scene.getStylesheets().add("/org/openjfx/style.css");
     stage.show();
   }
 }
