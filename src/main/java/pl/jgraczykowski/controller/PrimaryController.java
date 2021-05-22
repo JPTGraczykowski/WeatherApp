@@ -356,17 +356,16 @@ public class PrimaryController implements Initializable {
     return !cityName.isEmpty();
   }
 
-  private void setWeatherForecast(String cityName,
+  private void setWeatherForecast(String city,
                                   WeatherProvider weatherProvider,
                                   List<List<Label>> listOfLabels,
                                   Label errorLabel) {
-    if(validateCityName(cityName)) {
-      weatherProvider.setCity(cityName);
-      if (weatherProvider.setWeatherForecast()) {
+    if (validateCityName(city)) {
+      if (weatherProvider.setWeatherForecast(city)) {
         List<Weather> weatherForecast = weatherProvider.getWeatherForecast();
         errorLabel.setText("");
         int index = 0;
-        for(Weather weather: weatherForecast) {
+        for (Weather weather : weatherForecast) {
           setDailyWeather(weather, listOfLabels.get(index));
           index++;
         }
@@ -379,15 +378,15 @@ public class PrimaryController implements Initializable {
   }
 
   private void setDailyWeather(Weather weather, List<Label> labels) {
-      labels.get(0).setText(weather.getDate());
-      labels.get(1).setText(String.valueOf(weather.getFeelsLikeTemp()));
-      labels.get(2).setText(String.valueOf(weather.getMaxTemp()));
-      labels.get(3).setText(String.valueOf(weather.getMinTemp()));
-      labels.get(4).setText(String.valueOf(weather.getPressure()));
-      labels.get(5).setText(String.valueOf(weather.getHumidity()));
-      labels.get(6).setText(String.valueOf(weather.getWindSpeed()));
-      labels.get(7).setText(String.valueOf(weather.getCloudsPercentage()));
-      labels.get(8).setText(weather.getDescription());
+    labels.get(0).setText(weather.getDate());
+    labels.get(1).setText(String.valueOf(weather.getFeelsLikeTemp()));
+    labels.get(2).setText(String.valueOf(weather.getMaxTemp()));
+    labels.get(3).setText(String.valueOf(weather.getMinTemp()));
+    labels.get(4).setText(String.valueOf(weather.getPressure()));
+    labels.get(5).setText(String.valueOf(weather.getHumidity()));
+    labels.get(6).setText(String.valueOf(weather.getWindSpeed()));
+    labels.get(7).setText(String.valueOf(weather.getCloudsPercentage()));
+    labels.get(8).setText(weather.getDescription());
   }
 
   private List<List<Label>> getListOfLabelsForFirstCity(String city) {

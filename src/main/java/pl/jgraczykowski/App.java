@@ -12,14 +12,14 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    @Override
-    public void start(Stage stage) throws IOException {
-        ViewFactory viewFactory = new ViewFactory();
-        viewFactory.showMainWindow(getClass().getResource(Constants.FXML_NAME));
-    }
+  @Override
+  public void start(Stage stage) throws IOException {
+    ViewFactory viewFactory = new ViewFactory();
+    viewFactory.showMainWindow(getClass().getResource(Constants.FXML_NAME));
+  }
 
-    public static void main(String[] args) {
-        launch();
-    }
+  public static void main(String[] args) {
+    launch();
+  }
 
 }

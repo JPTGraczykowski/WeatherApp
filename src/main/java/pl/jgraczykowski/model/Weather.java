@@ -11,7 +11,8 @@ public class Weather {
   private String description;
   private String date;
 
-  public Weather() {}
+  public Weather() {
+  }
 
   public double getFeelsLikeTemp() {
     return feelsLikeTemp;
