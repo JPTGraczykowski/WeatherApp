@@ -313,7 +313,7 @@ public class PrimaryController implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     setHomeCityTextField(firstCity);
     setWeatherForecast(
-      Constants.homeCityName,
+      Constants.HOME_CITY_NAME,
       weatherProvider,
       getListOfLabelsForFirstCity("firstCity"),
       errorLabel1
@@ -349,7 +349,7 @@ public class PrimaryController implements Initializable {
   }
 
   private void setHomeCityTextField(TextField city) {
-    city.setText(Constants.homeCityName);
+    city.setText(Constants.HOME_CITY_NAME);
   }
 
   private boolean validateCityName(String cityName) {
@@ -370,12 +370,12 @@ public class PrimaryController implements Initializable {
           index++;
         }
       } else if (weatherForecast.getResult() == Result.WRONG_CITY) {
-        errorLabel.setText(Constants.wrongCityError);
+        errorLabel.setText(Constants.WRONG_CITY_ERROR);
       } else {
-        errorLabel.setText(Constants.unknownError);
+        errorLabel.setText(Constants.UNKNOWN_ERROR);
       }
     } else {
-      errorLabel.setText(Constants.missingCityError);
+      errorLabel.setText(Constants.MISSING_CITY_ERROR);
     }
   }
 
