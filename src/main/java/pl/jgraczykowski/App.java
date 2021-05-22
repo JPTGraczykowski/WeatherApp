@@ -1,9 +1,9 @@
-package org.openjfx;
+package pl.jgraczykowski;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.openjfx.view.ViewFactory;
-import static org.openjfx.config.Constants.*;
+import pl.jgraczykowski.view.ViewFactory;
+import pl.jgraczykowski.config.Constants;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         ViewFactory viewFactory = new ViewFactory();
-        viewFactory.showMainWindow(getClass().getResource(FXML_NAME));
+        viewFactory.showMainWindow(getClass().getResource(Constants.FXML_NAME));
     }
 
     public static void main(String[] args) {

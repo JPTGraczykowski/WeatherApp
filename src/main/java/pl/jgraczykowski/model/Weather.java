@@ -1,4 +1,4 @@
-package org.openjfx.model;
+package pl.jgraczykowski.model;
 
 public class Weather {
   private double feelsLikeTemp;

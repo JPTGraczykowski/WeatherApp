@@ -1,4 +1,4 @@
-package org.openjfx.config;
+package pl.jgraczykowski.config;
 
 public class Constants {
   public static final String FXML_NAME = "primary.fxml";

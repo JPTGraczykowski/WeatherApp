@@ -1,8 +1,8 @@
-package org.openjfx.model;
+package pl.jgraczykowski.model;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.openjfx.config.Secrets;
+import pl.jgraczykowski.config.Secrets;
 
 import java.io.IOException;
 import java.util.ArrayList;
