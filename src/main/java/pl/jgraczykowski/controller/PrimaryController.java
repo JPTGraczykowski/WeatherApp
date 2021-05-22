@@ -5,7 +5,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pl.jgraczykowski.config.Constants;
+import pl.jgraczykowski.model.Result;
 import pl.jgraczykowski.model.Weather;
+import pl.jgraczykowski.model.WeatherForecast;
 import pl.jgraczykowski.model.WeatherProvider;
 
 import java.net.URL;
@@ -301,12 +303,10 @@ public class PrimaryController implements Initializable {
   @FXML
   private Label secondCityDescriptionLabel5;
 
-  private WeatherProvider firstCityWeatherProvider;
-  private WeatherProvider secondCityWeatherProvider;
+  private WeatherProvider weatherProvider;
 
   public PrimaryController() {
-    firstCityWeatherProvider = new WeatherProvider();
-    secondCityWeatherProvider = new WeatherProvider();
+    weatherProvider = new WeatherProvider();
   }
 
   @Override
@@ -314,7 +314,7 @@ public class PrimaryController implements Initializable {
     setHomeCityTextField(firstCity);
     setWeatherForecast(
       Constants.homeCityName,
-      firstCityWeatherProvider,
+      weatherProvider,
       getListOfLabelsForFirstCity("firstCity"),
       errorLabel1
     );
@@ -322,11 +322,11 @@ public class PrimaryController implements Initializable {
 
   @FXML
   void firstShowButtonAction() {
-    firstCityWeatherProvider = new WeatherProvider();
+    weatherProvider = new WeatherProvider();
     String cityName = getCityName(firstCity);
     setWeatherForecast(
       cityName,
-      firstCityWeatherProvider,
+      weatherProvider,
       getListOfLabelsForFirstCity("firstCity"),
       errorLabel1
     );
@@ -334,11 +334,11 @@ public class PrimaryController implements Initializable {
 
   @FXML
   void secondShowButtonAction() {
-    secondCityWeatherProvider = new WeatherProvider();
+    weatherProvider = new WeatherProvider();
     String cityName = getCityName(secondCity);
     setWeatherForecast(
       cityName,
-      secondCityWeatherProvider,
+      weatherProvider,
       getListOfLabelsForFirstCity("secondCity"),
       errorLabel2
     );
@@ -361,16 +361,18 @@ public class PrimaryController implements Initializable {
                                   List<List<Label>> listOfLabels,
                                   Label errorLabel) {
     if (validateCityName(city)) {
-      if (weatherProvider.setWeatherForecast(city)) {
-        List<Weather> weatherForecast = weatherProvider.getWeatherForecast();
+      WeatherForecast weatherForecast = weatherProvider.getWeatherForecast(city);
+      if (weatherForecast.getResult() == Result.SUCCESS) {
         errorLabel.setText("");
         int index = 0;
-        for (Weather weather : weatherForecast) {
+        for (Weather weather : weatherForecast.getWeather()) {
           setDailyWeather(weather, listOfLabels.get(index));
           index++;
         }
-      } else {
+      } else if (weatherForecast.getResult() == Result.WRONG_CITY) {
         errorLabel.setText(Constants.wrongCityError);
+      } else {
+        errorLabel.setText(Constants.unknownError);
       }
     } else {
       errorLabel.setText(Constants.missingCityError);

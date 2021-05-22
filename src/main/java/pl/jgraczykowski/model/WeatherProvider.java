@@ -10,19 +10,28 @@ import java.util.List;
 
 public class WeatherProvider {
 
-  private final List<Weather> weatherForecast;
   private Weather weather;
-  private JSONObject apiResponse;
   private JSONObject weatherJson;
   private JSONObject mainWeatherJson;
+  private static final String MIDDLE_DAY_HOUR = "15";
 
   public WeatherProvider() {
-    weatherForecast = new ArrayList<>();
   }
 
-  public boolean setWeatherForecast(String city) {
-    boolean succeeded = getWeatherApiResponse(city);
-    if (succeeded) {
+  public WeatherForecast getWeatherForecast(String city) {
+    Result apiResponseResult;
+    List<Weather> weatherList = new ArrayList<>();
+    JSONObject apiResponse = null;
+
+    try {
+      apiResponse = getWeatherApiResponse(city);
+      apiResponseResult = Result.SUCCESS;
+    } catch (IOException e) {
+      apiResponseResult = Result.UNKNOWN;
+      e.printStackTrace();
+    }
+
+    if (apiResponseResult == Result.SUCCESS) {
       JSONArray weatherForecastJson = apiResponse.getJSONArray("list");
       int listLength = weatherForecastJson.length();
 
@@ -34,26 +43,21 @@ public class WeatherProvider {
         if (jsonElement == 0 || isMiddleDay(weatherJson.getString("dt_txt"))) {
           weather = new Weather();
           setWeather();
-          weatherForecast.add(weather);
+          weatherList.add(weather);
         }
       }
     }
-    return succeeded;
+    return new WeatherForecast(weatherList, apiResponseResult);
   }
 
-  private boolean getWeatherApiResponse(String city) {
-    try {
-      apiResponse = JsonReader.readJsonFromUrl(
-        "http://api.openweathermap.org/data/2.5/forecast?q=" +
-          city +
-          "&cnt=33&lang=en&units=metric&appid=" +
-          Secrets.API_KEY
-      );
-      return true;
-    } catch (IOException e) {
-      e.printStackTrace();
-      return false;
-    }
+  private JSONObject getWeatherApiResponse(String city) throws IOException {
+
+    return JsonReader.readJsonFromUrl(
+      "http://api.openweathermap.org/data/2.5/forecast?q=" +
+        city +
+        "&cnt=33&lang=en&units=metric&appid=" +
+        Secrets.API_KEY
+    );
   }
 
   private void setWeather() {
@@ -113,11 +117,6 @@ public class WeatherProvider {
 
   private boolean isMiddleDay(String date) {
     String hour = date.substring(10, 13);
-    String middleDayHour = "15";
-    return hour.trim().equals(middleDayHour);
-  }
-
-  public List<Weather> getWeatherForecast() {
-    return weatherForecast;
+    return hour.trim().equals(MIDDLE_DAY_HOUR);
   }
 }
