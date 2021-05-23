@@ -5,7 +5,7 @@ import java.util.List;
 public class WeatherForecast {
 
   private final List<Weather> weather;
-  private Result result;
+  private final Result result;
 
   public WeatherForecast(List<Weather> weather, Result result) {
     this.weather = weather;
@@ -18,9 +18,5 @@ public class WeatherForecast {
 
   public Result getResult() {
     return result;
-  }
-
-  public void setResult(Result result) {
-    this.result = result;
   }
 }

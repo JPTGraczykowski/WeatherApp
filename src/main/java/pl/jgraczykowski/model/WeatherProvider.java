@@ -2,15 +2,16 @@ package pl.jgraczykowski.model;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import pl.jgraczykowski.config.Constants;
 import pl.jgraczykowski.config.Secrets;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class WeatherProvider {
 
-  private Weather weather;
   private JSONObject weatherJson;
   private JSONObject mainWeatherJson;
   private static final String MIDDLE_DAY_HOUR = "15";
@@ -26,26 +27,22 @@ public class WeatherProvider {
     try {
       apiResponse = getWeatherApiResponse(city);
       apiResponseResult = Result.SUCCESS;
-    } catch (IOException e) {
+    } catch (FileNotFoundException e) {
+      apiResponseResult = Result.WRONG_CITY;
+      e.printStackTrace();
+    } catch (Exception e) {
       apiResponseResult = Result.UNKNOWN;
       e.printStackTrace();
     }
 
     if (apiResponseResult == Result.SUCCESS) {
-      JSONArray weatherForecastJson = apiResponse.getJSONArray("list");
-      int listLength = weatherForecastJson.length();
+      weatherList = setWeatherList(apiResponse);
 
-      for (int jsonElement = 0; jsonElement < listLength; jsonElement++) {
-        weatherJson = weatherForecastJson.getJSONObject(jsonElement);
-        mainWeatherJson = weatherJson.getJSONObject("main");
-
-        // first weather object or weather object at 15:00
-        if (jsonElement == 0 || isMiddleDay(weatherJson.getString("dt_txt"))) {
-          Weather weather = setWeather();
-          weatherList.add(weather);
-        }
+      if (!validateForecastLength(weatherList)) {
+        apiResponseResult = Result.UNKNOWN;
       }
     }
+
     return new WeatherForecast(weatherList, apiResponseResult);
   }
 
@@ -57,6 +54,31 @@ public class WeatherProvider {
         "&cnt=33&lang=en&units=metric&appid=" +
         Secrets.API_KEY
     );
+  }
+
+  private List<Weather> setWeatherList(JSONObject apiResponse) {
+
+    List<Weather> weatherList = new ArrayList<>();
+
+    JSONArray weatherForecastJson = apiResponse.getJSONArray("list");
+    int listLength = weatherForecastJson.length();
+
+    for (int jsonElement = 0; jsonElement < listLength; jsonElement++) {
+      weatherJson = weatherForecastJson.getJSONObject(jsonElement);
+      mainWeatherJson = weatherJson.getJSONObject("main");
+
+      // first weather object or weather object at 15:00
+      if (jsonElement == 0 || isMiddleDay(weatherJson.getString("dt_txt"))) {
+        Weather weather = setWeather();
+        weatherList.add(weather);
+      }
+    }
+
+    return weatherList;
+  }
+
+  private boolean validateForecastLength(List<Weather> weatherList) {
+    return weatherList.size() == Constants.FORECAST_LENGTH;
   }
 
   private Weather setWeather() {

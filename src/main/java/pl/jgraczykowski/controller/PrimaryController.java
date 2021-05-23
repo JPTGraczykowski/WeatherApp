@@ -343,7 +343,7 @@ public class PrimaryController implements Initializable {
                                   Label errorLabel) {
     if (validateCityName(city)) {
       WeatherForecast weatherForecast = weatherProvider.getWeatherForecast(city);
-      validateForecastLength(weatherForecast);
+
       if (weatherForecast.getResult() == Result.SUCCESS) {
         errorLabel.setText("");
         int index = 0;
@@ -373,12 +373,6 @@ public class PrimaryController implements Initializable {
     return !cityName.isEmpty();
   }
 
-  private void validateForecastLength(WeatherForecast weatherForecast) {
-    if (weatherForecast.getWeather().size() != Constants.FORECAST_LENGTH) {
-      weatherForecast.setResult(Result.UNKNOWN);
-    }
-  }
-
   private void setDailyWeather(Weather weather, Labels labels) {
     labels.setDate(weather.getDate());
     labels.setFeelsLikeTemp(String.valueOf(weather.getFeelsLikeTemp()));
@@ -402,7 +396,7 @@ public class PrimaryController implements Initializable {
   // == List of labels according to the city ====================================
 
   private Labels day1Labels(String city) {
-    switch(city) {
+    switch (city) {
       case "firstCity":
         return new Labels(Arrays.asList(
           firstCityDateLabel1,
@@ -425,7 +419,7 @@ public class PrimaryController implements Initializable {
   }
 
   private Labels day2Labels(String city) {
-    switch(city) {
+    switch (city) {
       case "firstCity":
         return new Labels(Arrays.asList(
           firstCityDateLabel2,
@@ -448,7 +442,7 @@ public class PrimaryController implements Initializable {
   }
 
   private Labels day3Labels(String city) {
-    switch(city) {
+    switch (city) {
       case "firstCity":
         return new Labels(Arrays.asList(
           firstCityDateLabel3,
