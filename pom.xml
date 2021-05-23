@@ -1,24 +1,43 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.openjfx</groupId>
+    <groupId>pl.jgraczykowski</groupId>
     <artifactId>WeatherApp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <javafx.version>15.0.1</javafx.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>15.0.1</version>
+            <version>${javafx.version}</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.openjfx</groupId>-->
+<!--            <artifactId>javafx-graphics </artifactId>-->
+<!--            <version>${javafx.version}</version>-->
+<!--            <classifier>win</classifier>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.openjfx</groupId>-->
+<!--            <artifactId>javafx-graphics </artifactId>-->
+<!--            <version>${javafx.version}</version>-->
+<!--            <classifier>linux</classifier>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.openjfx</groupId>-->
+<!--            <artifactId>javafx-graphics </artifactId>-->
+<!--            <version>${javafx.version}</version>-->
+<!--            <classifier>mac</classifier>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>15.0.1</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>
@@ -41,7 +60,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>org.openjfx.App</mainClass>
+                    <mainClass>pl.jgraczykowski.App</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -56,7 +75,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>org.openjfx.StarterApp</mainClass>
+                                    <mainClass>pl.jgraczykowski.StarterApp</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

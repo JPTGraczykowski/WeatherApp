@@ -1,10 +1,10 @@
-package org.openjfx.view;
+package pl.jgraczykowski.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.openjfx.controller.PrimaryController;
+import pl.jgraczykowski.controller.PrimaryController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,7 +29,7 @@ public class ViewFactory {
     Scene scene = new Scene(parent, 1366, 850);
     Stage stage = new Stage();
     stage.setScene(scene);
-    scene.getStylesheets().add("/org/openjfx/style.css");
+    scene.getStylesheets().add("/pl/jgraczykowski/style.css");
     stage.show();
   }
 }

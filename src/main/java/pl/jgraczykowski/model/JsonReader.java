@@ -1,4 +1,4 @@
-package org.openjfx.model;
+package pl.jgraczykowski.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;
