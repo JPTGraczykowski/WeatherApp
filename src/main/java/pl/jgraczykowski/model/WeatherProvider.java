@@ -41,8 +41,7 @@ public class WeatherProvider {
 
         // first weather object or weather object at 15:00
         if (jsonElement == 0 || isMiddleDay(weatherJson.getString("dt_txt"))) {
-          weather = new Weather();
-          setWeather();
+          Weather weather = setWeather();
           weatherList.add(weather);
         }
       }
@@ -60,59 +59,58 @@ public class WeatherProvider {
     );
   }
 
-  private void setWeather() {
-    setDate();
-    setFeelsLikeTemp();
-    setMaxTemp();
-    setMinTemp();
-    setPressure();
-    setHumidity();
-    setWindSpeed();
-    setCloudsPercentage();
-    setDescription();
+  private Weather setWeather() {
+    return new Weather(
+      getFeelsLikeTemp(),
+      getMaxTemp(),
+      getMinTemp(),
+      getPressure(),
+      getHumidity(),
+      getWindSpeed(),
+      getCloudsPercentage(),
+      getDescription(),
+      getDate());
   }
 
-  private void setDate() {
+  private String getDate() {
     String date = weatherJson.getString("dt_txt");
     date = date.substring(0, 16);
-    weather.setDate(date);
+    return date;
   }
 
-  private void setFeelsLikeTemp() {
-    weather.setFeelsLikeTemp(mainWeatherJson.getDouble("feels_like"));
+  private double getFeelsLikeTemp() {
+    return mainWeatherJson.getDouble("feels_like");
   }
 
-  private void setMaxTemp() {
-    weather.setMaxTemp(mainWeatherJson.getDouble("temp_max"));
+  private double getMaxTemp() {
+    return mainWeatherJson.getDouble("temp_max");
   }
 
-  private void setMinTemp() {
-    weather.setMinTemp(mainWeatherJson.getDouble("temp_min"));
+  private double getMinTemp() {
+    return mainWeatherJson.getDouble("temp_min");
   }
 
-  private void setPressure() {
-    weather.setPressure(mainWeatherJson.getDouble("pressure"));
+  private double getPressure() {
+    return mainWeatherJson.getDouble("pressure");
   }
 
-  private void setHumidity() {
-    weather.setHumidity(mainWeatherJson.getDouble("humidity"));
+  private double getHumidity() {
+    return mainWeatherJson.getDouble("humidity");
   }
 
-  private void setWindSpeed() {
-    weather.setWindSpeed(weatherJson.getJSONObject("wind").getDouble("speed"));
+  private double getWindSpeed() {
+    return weatherJson.getJSONObject("wind").getDouble("speed");
   }
 
-  private void setCloudsPercentage() {
-    weather.setCloudsPercentage(weatherJson.getJSONObject("clouds").getDouble("all"));
+  private double getCloudsPercentage() {
+    return weatherJson.getJSONObject("clouds").getDouble("all");
   }
 
-  private void setDescription() {
-    weather.setDescription(
-      weatherJson
-        .getJSONArray("weather")
-        .getJSONObject(0)
-        .getString("description")
-    );
+  private String getDescription() {
+    return weatherJson
+      .getJSONArray("weather")
+      .getJSONObject(0)
+      .getString("description");
   }
 
   private boolean isMiddleDay(String date) {
