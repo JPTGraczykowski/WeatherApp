@@ -5,10 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pl.jgraczykowski.config.Constants;
-import pl.jgraczykowski.model.Result;
-import pl.jgraczykowski.model.Weather;
-import pl.jgraczykowski.model.WeatherForecast;
-import pl.jgraczykowski.model.WeatherProvider;
+import pl.jgraczykowski.model.*;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -303,7 +300,7 @@ public class PrimaryController implements Initializable {
   @FXML
   private Label secondCityDescriptionLabel5;
 
-  private WeatherProvider weatherProvider;
+  private final WeatherProvider weatherProvider;
 
   public PrimaryController() {
     weatherProvider = new WeatherProvider();
@@ -315,53 +312,38 @@ public class PrimaryController implements Initializable {
     setWeatherForecast(
       Constants.HOME_CITY_NAME,
       weatherProvider,
-      getListOfLabelsForFirstCity("firstCity"),
+      getListOfLabels("firstCity"),
       errorLabel1
     );
   }
 
   @FXML
   void firstShowButtonAction() {
-    weatherProvider = new WeatherProvider();
-    String cityName = getCityName(firstCity);
     setWeatherForecast(
-      cityName,
+      getCityName(firstCity),
       weatherProvider,
-      getListOfLabelsForFirstCity("firstCity"),
+      getListOfLabels("firstCity"),
       errorLabel1
     );
   }
 
   @FXML
   void secondShowButtonAction() {
-    weatherProvider = new WeatherProvider();
-    String cityName = getCityName(secondCity);
     setWeatherForecast(
-      cityName,
+      getCityName(secondCity),
       weatherProvider,
-      getListOfLabelsForFirstCity("secondCity"),
+      getListOfLabels("secondCity"),
       errorLabel2
     );
   }
 
-  private String getCityName(TextField city) {
-    return city.getText();
-  }
-
-  private void setHomeCityTextField(TextField city) {
-    city.setText(Constants.HOME_CITY_NAME);
-  }
-
-  private boolean validateCityName(String cityName) {
-    return !cityName.isEmpty();
-  }
-
   private void setWeatherForecast(String city,
                                   WeatherProvider weatherProvider,
-                                  List<List<Label>> listOfLabels,
+                                  List<Labels> listOfLabels,
                                   Label errorLabel) {
     if (validateCityName(city)) {
       WeatherForecast weatherForecast = weatherProvider.getWeatherForecast(city);
+      validateForecastLength(weatherForecast);
       if (weatherForecast.getResult() == Result.SUCCESS) {
         errorLabel.setText("");
         int index = 0;
@@ -379,19 +361,37 @@ public class PrimaryController implements Initializable {
     }
   }
 
-  private void setDailyWeather(Weather weather, List<Label> labels) {
-    labels.get(0).setText(weather.getDate());
-    labels.get(1).setText(String.valueOf(weather.getFeelsLikeTemp()));
-    labels.get(2).setText(String.valueOf(weather.getMaxTemp()));
-    labels.get(3).setText(String.valueOf(weather.getMinTemp()));
-    labels.get(4).setText(String.valueOf(weather.getPressure()));
-    labels.get(5).setText(String.valueOf(weather.getHumidity()));
-    labels.get(6).setText(String.valueOf(weather.getWindSpeed()));
-    labels.get(7).setText(String.valueOf(weather.getCloudsPercentage()));
-    labels.get(8).setText(weather.getDescription());
+  private String getCityName(TextField city) {
+    return city.getText();
   }
 
-  private List<List<Label>> getListOfLabelsForFirstCity(String city) {
+  private void setHomeCityTextField(TextField city) {
+    city.setText(Constants.HOME_CITY_NAME);
+  }
+
+  private boolean validateCityName(String cityName) {
+    return !cityName.isEmpty();
+  }
+
+  private void validateForecastLength(WeatherForecast weatherForecast) {
+    if (weatherForecast.getWeather().size() != Constants.FORECAST_LENGTH) {
+      weatherForecast.setResult(Result.UNKNOWN);
+    }
+  }
+
+  private void setDailyWeather(Weather weather, Labels labels) {
+    labels.setDate(weather.getDate());
+    labels.setFeelsLikeTemp(String.valueOf(weather.getFeelsLikeTemp()));
+    labels.setMaxTemp(String.valueOf(weather.getMaxTemp()));
+    labels.setMinTemp(String.valueOf(weather.getMinTemp()));
+    labels.setPressure(String.valueOf(weather.getPressure()));
+    labels.setHumidity(String.valueOf(weather.getHumidity()));
+    labels.setWindSpeed(String.valueOf(weather.getWindSpeed()));
+    labels.setCloudsPercentage(String.valueOf(weather.getCloudsPercentage()));
+    labels.setDescription(weather.getDescription());
+  }
+
+  private List<Labels> getListOfLabels(String city) {
     return Arrays.asList(
       day1Labels(city), day2Labels(city),
       day3Labels(city), day4Labels(city),
@@ -401,103 +401,118 @@ public class PrimaryController implements Initializable {
 
   // == List of labels according to the city ====================================
 
-  private List<Label> day1Labels(String city) {
-    if (city.equals("firstCity")) {
-      return Arrays.asList(
-        firstCityDateLabel1,
-        firstCityFeelsLikeTempLabel1, firstCityMaxTempLabel1,
-        firstCityMinTempLabel1, firstCityPressureLabel1,
-        firstCityHumidityLabel1, firstCityWindSpeedLabel1,
-        firstCityCloudsLabel1, firstCityDescriptionLabel1
-      );
-    } else {
-      return Arrays.asList(
-        secondCityDateLabel1,
-        secondCityFeelsLikeTempLabel1, secondCityMaxTempLabel1,
-        secondCityMinTempLabel1, secondCityPressureLabel1,
-        secondCityHumidityLabel1, secondCityWindSpeedLabel1,
-        secondCityCloudsLabel1, secondCityDescriptionLabel1
-      );
+  private Labels day1Labels(String city) {
+    switch(city) {
+      case "firstCity":
+        return new Labels(Arrays.asList(
+          firstCityDateLabel1,
+          firstCityFeelsLikeTempLabel1, firstCityMaxTempLabel1,
+          firstCityMinTempLabel1, firstCityPressureLabel1,
+          firstCityHumidityLabel1, firstCityWindSpeedLabel1,
+          firstCityCloudsLabel1, firstCityDescriptionLabel1
+        ));
+      case "secondCity":
+        return new Labels(Arrays.asList(
+          secondCityDateLabel1,
+          secondCityFeelsLikeTempLabel1, secondCityMaxTempLabel1,
+          secondCityMinTempLabel1, secondCityPressureLabel1,
+          secondCityHumidityLabel1, secondCityWindSpeedLabel1,
+          secondCityCloudsLabel1, secondCityDescriptionLabel1
+        ));
+      default:
+        throw new IllegalArgumentException("Wrong City");
     }
   }
 
-  private List<Label> day2Labels(String city) {
-    if (city.equals("firstCity")) {
-      return Arrays.asList(
-        firstCityDateLabel2,
-        firstCityFeelsLikeTempLabel2, firstCityMaxTempLabel2,
-        firstCityMinTempLabel2, firstCityPressureLabel2,
-        firstCityHumidityLabel2, firstCityWindSpeedLabel2,
-        firstCityCloudsLabel2, firstCityDescriptionLabel2
-      );
-    } else {
-      return Arrays.asList(
-        secondCityDateLabel2,
-        secondCityFeelsLikeTempLabel2, secondCityMaxTempLabel2,
-        secondCityMinTempLabel2, secondCityPressureLabel2,
-        secondCityHumidityLabel2, secondCityWindSpeedLabel2,
-        secondCityCloudsLabel2, secondCityDescriptionLabel2
-      );
+  private Labels day2Labels(String city) {
+    switch(city) {
+      case "firstCity":
+        return new Labels(Arrays.asList(
+          firstCityDateLabel2,
+          firstCityFeelsLikeTempLabel2, firstCityMaxTempLabel2,
+          firstCityMinTempLabel2, firstCityPressureLabel2,
+          firstCityHumidityLabel2, firstCityWindSpeedLabel2,
+          firstCityCloudsLabel2, firstCityDescriptionLabel2
+        ));
+      case "secondCity":
+        return new Labels(Arrays.asList(
+          secondCityDateLabel2,
+          secondCityFeelsLikeTempLabel2, secondCityMaxTempLabel2,
+          secondCityMinTempLabel2, secondCityPressureLabel2,
+          secondCityHumidityLabel2, secondCityWindSpeedLabel2,
+          secondCityCloudsLabel2, secondCityDescriptionLabel2
+        ));
+      default:
+        throw new IllegalArgumentException("Wrong City");
     }
   }
 
-  private List<Label> day3Labels(String city) {
-    if (city.equals("firstCity")) {
-      return Arrays.asList(
-        firstCityDateLabel3,
-        firstCityFeelsLikeTempLabel3, firstCityMaxTempLabel3,
-        firstCityMinTempLabel3, firstCityPressureLabel3,
-        firstCityHumidityLabel3, firstCityWindSpeedLabel3,
-        firstCityCloudsLabel3, firstCityDescriptionLabel3
-      );
-    } else {
-      return Arrays.asList(
-        secondCityDateLabel3,
-        secondCityFeelsLikeTempLabel3, secondCityMaxTempLabel3,
-        secondCityMinTempLabel3, secondCityPressureLabel3,
-        secondCityHumidityLabel3, secondCityWindSpeedLabel3,
-        secondCityCloudsLabel3, secondCityDescriptionLabel3
-      );
+  private Labels day3Labels(String city) {
+    switch(city) {
+      case "firstCity":
+        return new Labels(Arrays.asList(
+          firstCityDateLabel3,
+          firstCityFeelsLikeTempLabel3, firstCityMaxTempLabel3,
+          firstCityMinTempLabel3, firstCityPressureLabel3,
+          firstCityHumidityLabel3, firstCityWindSpeedLabel3,
+          firstCityCloudsLabel3, firstCityDescriptionLabel3
+        ));
+      case "secondCity":
+        return new Labels(Arrays.asList(
+          secondCityDateLabel3,
+          secondCityFeelsLikeTempLabel3, secondCityMaxTempLabel3,
+          secondCityMinTempLabel3, secondCityPressureLabel3,
+          secondCityHumidityLabel3, secondCityWindSpeedLabel3,
+          secondCityCloudsLabel3, secondCityDescriptionLabel3
+        ));
+      default:
+        throw new IllegalArgumentException("Wrong City");
     }
   }
 
-  private List<Label> day4Labels(String city) {
-    if (city.equals("firstCity")) {
-      return Arrays.asList(
-        firstCityDateLabel4,
-        firstCityFeelsLikeTempLabel4, firstCityMaxTempLabel4,
-        firstCityMinTempLabel4, firstCityPressureLabel4,
-        firstCityHumidityLabel4, firstCityWindSpeedLabel4,
-        firstCityCloudsLabel4, firstCityDescriptionLabel4
-      );
-    } else {
-      return Arrays.asList(
-        secondCityDateLabel4,
-        secondCityFeelsLikeTempLabel4, secondCityMaxTempLabel4,
-        secondCityMinTempLabel4, secondCityPressureLabel4,
-        secondCityHumidityLabel4, secondCityWindSpeedLabel4,
-        secondCityCloudsLabel4, secondCityDescriptionLabel4
-      );
+  private Labels day4Labels(String city) {
+    switch (city) {
+      case "firstCity":
+        return new Labels(Arrays.asList(
+          firstCityDateLabel4,
+          firstCityFeelsLikeTempLabel4, firstCityMaxTempLabel4,
+          firstCityMinTempLabel4, firstCityPressureLabel4,
+          firstCityHumidityLabel4, firstCityWindSpeedLabel4,
+          firstCityCloudsLabel4, firstCityDescriptionLabel4
+        ));
+      case "secondCity":
+        return new Labels(Arrays.asList(
+          secondCityDateLabel4,
+          secondCityFeelsLikeTempLabel4, secondCityMaxTempLabel4,
+          secondCityMinTempLabel4, secondCityPressureLabel4,
+          secondCityHumidityLabel4, secondCityWindSpeedLabel4,
+          secondCityCloudsLabel4, secondCityDescriptionLabel4
+        ));
+      default:
+        throw new IllegalArgumentException("Wrong City");
     }
   }
 
-  private List<Label> day5Labels(String city) {
-    if (city.equals("firstCity")) {
-      return Arrays.asList(
-        firstCityDateLabel5,
-        firstCityFeelsLikeTempLabel5, firstCityMaxTempLabel5,
-        firstCityMinTempLabel5, firstCityPressureLabel5,
-        firstCityHumidityLabel5, firstCityWindSpeedLabel5,
-        firstCityCloudsLabel5, firstCityDescriptionLabel5
-      );
-    } else {
-      return Arrays.asList(
-        secondCityDateLabel5,
-        secondCityFeelsLikeTempLabel5, secondCityMaxTempLabel5,
-        secondCityMinTempLabel5, secondCityPressureLabel5,
-        secondCityHumidityLabel5, secondCityWindSpeedLabel5,
-        secondCityCloudsLabel5, secondCityDescriptionLabel5
-      );
+  private Labels day5Labels(String city) {
+    switch (city) {
+      case "firstCity":
+        return new Labels(Arrays.asList(
+          firstCityDateLabel5,
+          firstCityFeelsLikeTempLabel5, firstCityMaxTempLabel5,
+          firstCityMinTempLabel5, firstCityPressureLabel5,
+          firstCityHumidityLabel5, firstCityWindSpeedLabel5,
+          firstCityCloudsLabel5, firstCityDescriptionLabel5
+        ));
+      case "secondCity":
+        return new Labels(Arrays.asList(
+          secondCityDateLabel5,
+          secondCityFeelsLikeTempLabel5, secondCityMaxTempLabel5,
+          secondCityMinTempLabel5, secondCityPressureLabel5,
+          secondCityHumidityLabel5, secondCityWindSpeedLabel5,
+          secondCityCloudsLabel5, secondCityDescriptionLabel5
+        ));
+      default:
+        throw new IllegalArgumentException("Wrong City");
     }
   }
 }
