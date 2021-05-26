@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainArea" prefHeight="850.0" prefWidth="1251.0" styleClass="mainArea" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainArea" prefHeight="850.0" prefWidth="1250.0" styleClass="mainArea" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="firstCity" layoutX="317.0" layoutY="62.0" prefHeight="25.0" prefWidth="250.0" styleClass="textField" />
       <TextField fx:id="secondCity" layoutX="306.0" layoutY="440.0" prefHeight="27.0" prefWidth="261.0" styleClass="textField" />
@@ -16,13 +16,13 @@
       <Button layoutX="582.0" layoutY="437.0" mnemonicParsing="false" onAction="#secondShowButtonAction" prefHeight="33.0" prefWidth="118.0" styleClass="button" text="Forecast" />
       <Label fx:id="helpLabel1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="53.0" layoutY="54.0" prefHeight="42.0" prefWidth="250.0" styleClass="bigLabel" text="Type city:" />
       <Label fx:id="helpLabel2" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="430.0" prefHeight="42.0" prefWidth="250.0" styleClass="bigLabel" text="Type a city:" />
-      <Label fx:id="titleLabel" alignment="CENTER" layoutX="440.0" prefHeight="42.0" prefWidth="521.0" styleClass="title" text="Weather App">
+      <Label fx:id="titleLabel" alignment="CENTER" layoutX="400.0" layoutY="7.0" prefHeight="42.0" prefWidth="521.0" styleClass="title" text="Weather App">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Label>
       <Label fx:id="errorLabel1" layoutX="717.0" layoutY="62.0" prefHeight="27.0" prefWidth="261.0" styleClass="errorLabel" textFill="RED" />
       <Label fx:id="errorLabel2" layoutX="728.0" layoutY="440.0" prefHeight="27.0" prefWidth="261.0" styleClass="errorLabel" textFill="RED" />
-      <Pane layoutX="1.0" layoutY="107.0" prefHeight="283.0" prefWidth="318.0">
+      <Pane layoutX="1.0" layoutY="110.0" prefHeight="283.0" prefWidth="318.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -42,10 +42,10 @@
             <Label fx:id="firstCityWindSpeedLabel1" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
             <Label fx:id="firstCityCloudsLabel1" layoutX="88.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
             <Label fx:id="firstCityDescriptionLabel1" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
-            <Separator layoutX="273.0" layoutY="14.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+            <Separator layoutX="230.0" layoutY="10.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
          </children>
       </Pane>
-      <Pane layoutX="272.0" layoutY="107.0" prefHeight="283.0" prefWidth="318.0">
+      <Pane layoutX="270.0" layoutY="110.0" prefHeight="283.0" prefWidth="318.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -65,10 +65,10 @@
             <Label fx:id="firstCityWindSpeedLabel2" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
             <Label fx:id="firstCityCloudsLabel2" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
             <Label fx:id="firstCityDescriptionLabel2" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
-            <Separator layoutX="269.0" layoutY="12.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+            <Separator layoutX="230.0" layoutY="10.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
          </children>
       </Pane>
-      <Pane layoutX="540.0" layoutY="107.0" prefHeight="283.0" prefWidth="318.0">
+      <Pane layoutX="540.0" layoutY="110.0" prefHeight="283.0" prefWidth="318.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -88,10 +88,10 @@
             <Label fx:id="firstCityWindSpeedLabel3" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
             <Label fx:id="firstCityCloudsLabel3" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
             <Label fx:id="firstCityDescriptionLabel3" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
-            <Separator layoutX="250.0" layoutY="11.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+            <Separator layoutX="230.0" layoutY="10.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
          </children>
       </Pane>
-      <Pane layoutX="790.0" layoutY="107.0" prefHeight="283.0" prefWidth="318.0">
+      <Pane layoutX="790.0" layoutY="110.0" prefHeight="283.0" prefWidth="318.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -111,10 +111,10 @@
             <Label fx:id="firstCityWindSpeedLabel4" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
             <Label fx:id="firstCityCloudsLabel4" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
             <Label fx:id="firstCityDescriptionLabel4" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
-            <Separator layoutX="293.0" layoutY="9.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+            <Separator layoutX="230.0" layoutY="10.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
          </children>
       </Pane>
-      <Pane layoutX="1082.0" layoutY="107.0" prefHeight="283.0" prefWidth="301.0">
+      <Pane layoutX="1020.0" layoutY="110.0" prefHeight="283.0" prefWidth="301.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -136,8 +136,8 @@
             <Label fx:id="firstCityDescriptionLabel5" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
          </children>
       </Pane>
-      <Separator layoutX="14.0" layoutY="401.0" prefHeight="1.0" prefWidth="1359.0" />
-      <Pane layoutX="3.0" layoutY="495.0" prefHeight="283.0" prefWidth="318.0">
+      <Separator layoutX="10.0" layoutY="403.0" prefHeight="5.0" prefWidth="1235.0" />
+      <Pane layoutX="1.0" layoutY="500.0" prefHeight="283.0" prefWidth="318.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -157,10 +157,10 @@
             <Label fx:id="secondCityWindSpeedLabel1" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
             <Label fx:id="secondCityCloudsLabel1" layoutX="88.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
             <Label fx:id="secondCityDescriptionLabel1" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
-            <Separator layoutX="273.0" layoutY="14.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+            <Separator layoutX="230.0" layoutY="10.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
          </children>
       </Pane>
-      <Pane layoutX="274.0" layoutY="495.0" prefHeight="283.0" prefWidth="318.0">
+      <Pane layoutX="270.0" layoutY="500.0" prefHeight="283.0" prefWidth="318.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -180,10 +180,10 @@
             <Label fx:id="secondCityWindSpeedLabel2" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
             <Label fx:id="secondCityCloudsLabel2" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
             <Label fx:id="secondCityDescriptionLabel2" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
-            <Separator layoutX="269.0" layoutY="12.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+            <Separator layoutX="230.0" layoutY="10.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
          </children>
       </Pane>
-      <Pane layoutX="542.0" layoutY="495.0" prefHeight="283.0" prefWidth="318.0">
+      <Pane layoutX="540.0" layoutY="500.0" prefHeight="283.0" prefWidth="318.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -203,10 +203,10 @@
             <Label fx:id="secondCityWindSpeedLabel3" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
             <Label fx:id="secondCityCloudsLabel3" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
             <Label fx:id="secondCityDescriptionLabel3" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
-            <Separator layoutX="250.0" layoutY="11.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+            <Separator layoutX="230.0" layoutY="10.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
          </children>
       </Pane>
-      <Pane layoutX="792.0" layoutY="495.0" prefHeight="283.0" prefWidth="318.0">
+      <Pane layoutX="790.0" layoutY="500.0" prefHeight="283.0" prefWidth="318.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -226,10 +226,10 @@
             <Label fx:id="secondCityWindSpeedLabel4" layoutX="124.0" layoutY="181.0" prefHeight="17.0" prefWidth="177.0" />
             <Label fx:id="secondCityCloudsLabel4" layoutX="86.0" layoutY="212.0" prefHeight="17.0" prefWidth="221.0" />
             <Label fx:id="secondCityDescriptionLabel4" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
-            <Separator layoutX="293.0" layoutY="9.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
+            <Separator layoutX="230.0" layoutY="10.0" orientation="VERTICAL" prefHeight="251.0" prefWidth="4.0" />
          </children>
       </Pane>
-      <Pane layoutX="1084.0" layoutY="495.0" prefHeight="283.0" prefWidth="301.0">
+      <Pane layoutX="1020.0" layoutY="500.0" prefHeight="283.0" prefWidth="301.0">
          <children>
             <Label layoutX="14.0" layoutY="35.0" text="Feels Like Temperature [C]:" />
             <Label layoutX="14.0" layoutY="59.0" text="Max. Temperature [C]:" />
@@ -251,6 +251,6 @@
             <Label fx:id="secondCityDescriptionLabel5" layoutX="136.0" layoutY="247.0" prefHeight="17.0" prefWidth="170.0" />
          </children>
       </Pane>
-      <Label layoutX="639.0" layoutY="820.0" styleClass="footer" text="Jedrzej Graczykowski | 2021" />
+      <Label layoutX="583.0" layoutY="819.0" styleClass="footer" text="Jedrzej Graczykowski | 2021" />
    </children>
 </AnchorPane>

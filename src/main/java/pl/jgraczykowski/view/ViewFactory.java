@@ -26,10 +26,11 @@ public class ViewFactory {
       e.printStackTrace();
       return;
     }
-    Scene scene = new Scene(parent, 1366, 850);
+    Scene scene = new Scene(parent, 1250, 850);
     Stage stage = new Stage();
     stage.setScene(scene);
     scene.getStylesheets().add("/pl/jgraczykowski/style.css");
+    stage.setResizable(false);
     stage.show();
   }
 }
