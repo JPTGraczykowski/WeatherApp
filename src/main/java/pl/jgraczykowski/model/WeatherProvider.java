@@ -14,9 +14,11 @@ public class WeatherProvider {
 
   private JSONObject weatherJson;
   private JSONObject mainWeatherJson;
+  private final JsonReader jsonReader;
   private static final String MIDDLE_DAY_HOUR = "15";
 
-  public WeatherProvider() {
+  public WeatherProvider(JsonReader jsonReader) {
+    this.jsonReader = jsonReader;
   }
 
   public WeatherForecast getWeatherForecast(String city) {
@@ -26,6 +28,7 @@ public class WeatherProvider {
 
     try {
       apiResponse = getWeatherApiResponse(city);
+      apiResponse.getJSONArray("list");
       apiResponseResult = Result.SUCCESS;
     } catch (FileNotFoundException e) {
       apiResponseResult = Result.WRONG_CITY;
@@ -48,7 +51,7 @@ public class WeatherProvider {
 
   private JSONObject getWeatherApiResponse(String city) throws IOException {
 
-    return JsonReader.readJsonFromUrl(
+    return jsonReader.readJsonFromUrl(
       "http://api.openweathermap.org/data/2.5/forecast?q=" +
         city +
         "&cnt=33&lang=en&units=metric&appid=" +
