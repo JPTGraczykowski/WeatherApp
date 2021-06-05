@@ -3,6 +3,8 @@ package pl.jgraczykowski.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.hamcrest.Matchers.*;
@@ -44,7 +46,6 @@ public class WeatherProviderTest {
 
     // then
     assertThat(weatherForecast.getWeather(), hasSize(5));
-    assertThat(weatherForecast.getWeather(), not(emptyCollectionOf(Weather.class)));
   }
 
   @Test
@@ -64,15 +65,9 @@ public class WeatherProviderTest {
     WeatherForecast weatherForecast = weatherProvider.getWeatherForecast("London");
 
     // then
-    for (int i = 1; i < weatherForecast.getWeather().size(); i++) {
-      assertEquals("15", getHourFromWeatherForecastElements(weatherForecast, i));
-    }
+    assertEquals("15", weatherForecast.getWeather().get(1).getHour());
+    assertEquals("15", weatherForecast.getWeather().get(2).getHour());
+    assertEquals("15", weatherForecast.getWeather().get(3).getHour());
+    assertEquals("15", weatherForecast.getWeather().get(4).getHour());
   }
-
-  private String getHourFromWeatherForecastElements(WeatherForecast weatherForecast, int elementNo) {
-
-    return weatherForecast.getWeather().get(elementNo).getDate().substring(11, 13);
-  }
-
-
 }

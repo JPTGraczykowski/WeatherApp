@@ -136,7 +136,7 @@ public class WeatherProvider {
   }
 
   private boolean isMiddleDay(String date) {
-    String hour = date.substring(10, 13);
-    return hour.trim().equals(MIDDLE_DAY_HOUR);
+    String hour = date.substring(11, 13);
+    return hour.equals(MIDDLE_DAY_HOUR);
   }
 }
