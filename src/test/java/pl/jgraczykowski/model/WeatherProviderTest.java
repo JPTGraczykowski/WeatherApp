@@ -1,23 +1,39 @@
 package pl.jgraczykowski.model;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
+import static pl.jgraczykowski.config.Secrets.EXAMPLE_API_RESPONSE;
 
+@ExtendWith(MockitoExtension.class)
 public class WeatherProviderTest {
+
+  @InjectMocks
   private WeatherProvider weatherProvider;
 
-  @BeforeEach
-  void initializeWeatherProvider() {
-    weatherProvider = new WeatherProvider();
-  }
+  @Mock
+  private JsonReader jsonReader;
 
   @Test
-  void apiResponseResultShouldBeSuccessWhenEverythingIsCorrect() {
+  void apiResponseResultShouldBeSuccessWhenEverythingIsCorrect() throws IOException {
+
+    // given
+    when(jsonReader.readJsonFromUrl(anyString())).thenReturn(
+      new JSONObject(EXAMPLE_API_RESPONSE)
+    );
 
     // when
     WeatherForecast weatherForecast = weatherProvider.getWeatherForecast("London");
@@ -27,7 +43,10 @@ public class WeatherProviderTest {
   }
 
   @Test
-  void apiResponseResultShouldBeWrongCityWhenPassedWrongCity() {
+  void apiResponseResultShouldBeWrongCityWhenPassedWrongCity() throws IOException {
+
+    // given
+    when(jsonReader.readJsonFromUrl(anyString())).thenThrow(new FileNotFoundException());
 
     // when
     WeatherForecast weatherForecast = weatherProvider.getWeatherForecast("WrongCityExample");
@@ -37,18 +56,38 @@ public class WeatherProviderTest {
   }
 
   @Test
-  void weatherListShouldContainFiveObjectsOfWeather() {
+  void apiResponseResultUnknownErrorWhenIsMappedCorrectly() throws IOException {
+
+    // given
+    when(jsonReader.readJsonFromUrl(anyString())).thenThrow(new IOException());
+
+    // when
+    WeatherForecast weatherForecast = weatherProvider.getWeatherForecast("London");
+
+    // then
+    assertEquals(Result.UNKNOWN, weatherForecast.getResult());
+  }
+
+  @Test
+  void weatherListShouldContainFiveObjectsOfWeather() throws IOException {
+
+    // given
+    when(jsonReader.readJsonFromUrl(anyString())).thenReturn(
+      new JSONObject(EXAMPLE_API_RESPONSE)
+    );
 
     // when
     WeatherForecast weatherForecast = weatherProvider.getWeatherForecast("London");
 
     // then
     assertThat(weatherForecast.getWeather(), hasSize(5));
-    assertThat(weatherForecast.getWeather(), not(emptyCollectionOf(Weather.class)));
   }
 
   @Test
-  void weatherListShouldBeEmptyWhenWrongCityPassed() {
+  void weatherListShouldBeEmptyWhenWrongCityPassed() throws IOException {
+
+    // given
+    when(jsonReader.readJsonFromUrl(anyString())).thenThrow(new FileNotFoundException());
 
     // when
     WeatherForecast weatherForecast = weatherProvider.getWeatherForecast("WrongCityExample");
@@ -58,21 +97,20 @@ public class WeatherProviderTest {
   }
 
   @Test
-  void otherDaysThanFirstShouldHaveSetHourTo3PM() {
+  void otherDaysThanFirstShouldHaveSetHourTo3PM() throws IOException {
+
+    // given
+    when(jsonReader.readJsonFromUrl(anyString())).thenReturn(
+      new JSONObject(EXAMPLE_API_RESPONSE)
+    );
 
     // when
     WeatherForecast weatherForecast = weatherProvider.getWeatherForecast("London");
 
     // then
-    for (int i = 1; i < weatherForecast.getWeather().size(); i++) {
-      assertEquals("15", getHourFromWeatherForecastElements(weatherForecast, i));
-    }
+    assertEquals("15", weatherForecast.getWeather().get(1).getHour());
+    assertEquals("15", weatherForecast.getWeather().get(2).getHour());
+    assertEquals("15", weatherForecast.getWeather().get(3).getHour());
+    assertEquals("15", weatherForecast.getWeather().get(4).getHour());
   }
-
-  private String getHourFromWeatherForecastElements(WeatherForecast weatherForecast, int elementNo) {
-
-    return weatherForecast.getWeather().get(elementNo).getDate().substring(11, 13);
-  }
-
-
 }

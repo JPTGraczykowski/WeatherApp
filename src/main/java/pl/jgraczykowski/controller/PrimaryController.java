@@ -303,7 +303,7 @@ public class PrimaryController implements Initializable {
   private final WeatherProvider weatherProvider;
 
   public PrimaryController() {
-    weatherProvider = new WeatherProvider();
+    weatherProvider = new WeatherProvider(new JsonReader());
   }
 
   @Override

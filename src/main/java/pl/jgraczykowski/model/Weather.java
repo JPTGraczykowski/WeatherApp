@@ -58,4 +58,8 @@ public class Weather {
   public String getDate() {
     return date;
   }
+
+  public String getHour() {
+    return date.substring(11, 13);
+  }
 }

@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 
 public class JsonReader {
 
-  public static JSONObject readJsonFromUrl(String url) throws JSONException, IOException {
+  public JSONObject readJsonFromUrl(String url) throws JSONException, IOException {
     try (InputStream inputStream = new URL(url).openStream()) {
       BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
       String jsonText = readAll(reader);
@@ -17,7 +17,7 @@ public class JsonReader {
     }
   }
 
-  private static String readAll(BufferedReader reader) throws IOException {
+  private String readAll(BufferedReader reader) throws IOException {
     StringBuilder stringBuilder = new StringBuilder();
     int index;
     while ((index = reader.read()) != -1) {
